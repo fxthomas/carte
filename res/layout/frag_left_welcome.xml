@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-    
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text_linearlayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
-            <ScrollView
-                android:id="@+id/frame_left_scroll_back"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp" >
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Bienvenue!"
+        android:textColor="#ffffffff"
+        android:textSize="30dp" />
 
-                <LinearLayout
-                    android:id="@+id/frame_left_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/text_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:singleLine="false"
+        android:text="A la bonne fourchette, nous vous proposons une délicieuse sélection de plats, pour le plaisir de votre palais!\n\nPrenez le temps d’explorer cette carte et de choisir vous plats, vous pouvez appeler un serveur à tout moment avec l’icône d’appel située en haut à droite.\n\nBonne dégustation!"
+        android:textColor="#ffffffff"
+        android:textSize="16dp" />
 
-                    <TextView
-                        android:id="@+id/text_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Bienvenue!"
-                        android:textColor="#ffffffff"
-                        android:textSize="30dp" />
-
-                    <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="40dp"
-                        android:singleLine="false"
-                        android:text="A la bonne fourchette, nous vous proposons une délicieuse sélection de plats, pour le plaisir de votre palais!\n\nPrenez le temps d’explorer cette carte et de choisir vous plats, vous pouvez appeler un serveur à tout moment avec l’icône d’appel située en haut à droite.\n\nBonne dégustation!"
-                        android:textColor="#ffffffff"
-                        android:textSize="16dp" />
-                </LinearLayout>
-            </ScrollView>
-</FrameLayout>
+</LinearLayout>
