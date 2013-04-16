@@ -37,7 +37,8 @@
                 android:name="com.example.carte.RightWelcomeFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:layout="@layout/frag_right_welcome" />
+                tools:layout="@layout/frag_right_welcome" 
+                />
         </LinearLayout>
     </LinearLayout>
 

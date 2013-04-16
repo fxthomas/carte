@@ -29,18 +29,21 @@
                     android:id="@+id/fatsalade"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_gravity="center"
                     android:layout_weight="0.3"
+                    android:gravity="center"
                     android:text="  Fat salade  $5"
                     android:textColor="#f78e34"
                     android:textSize="40dp" />
 
                 <RatingBar
                     android:id="@+id/ratingBar1"
-                    android:scaleType="fitXY"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:layout_gravity="center"
                     android:layout_weight="0.3"
-                    android:numStars="5" />
+                    android:numStars="5"
+                    android:scaleType="fitXY" />
 
                 <TextView
                     android:id="@+id/textView1"
@@ -48,7 +51,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.4"
                     android:fontFamily="arial"
-                    android:text="Introduction du plat"
+                    android:text="Introduction of our most delicious dish. "
                     android:textSize="30dp" />
 
             </LinearLayout>
