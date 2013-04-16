@@ -24,12 +24,13 @@
                 tools:layout="@layout/frag_left_welcome" />
         </ScrollView>
 
-        <ScrollView
+        <LinearLayout
             android:id="@+id/frame_right"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:background="@drawable/background_light" >
+            android:background="@drawable/background_light"
+            android:orientation="vertical" >
 
             <fragment
                 android:id="@+id/fragment1"
@@ -37,8 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:layout="@layout/frag_right_welcome" />
-
-        </ScrollView>
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
