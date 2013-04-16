@@ -4,5 +4,12 @@
     <string name="app_name">Carte</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="action_service">Service</string>
+    <string name="action_textsize">Taille du texte</string>
+    <string name="action_tts">Synthèse vocale</string>
+    <string name="action_textsize_incr">Augmenter</string>
+    <string name="action_textsize_decr">Diminuer</string>
+    <string name="action_search">Rechercher</string>
+    <string name="action_language">Changer la langue</string>
 
 </resources>

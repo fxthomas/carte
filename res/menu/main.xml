@@ -1,9 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_service"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:icon="@drawable/ic_service"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_service"/>
+    
+    
+    <item android:id="@+id/action_search" android:showAsAction="ifRoom" android:icon="@drawable/ic_search" android:title="@string/action_search" android:orderInCategory="101"></item>
+    <item android:id="@+id/action_language" android:showAsAction="ifRoom" android:icon="@drawable/ic_flag_fr" android:title="@string/action_language" android:orderInCategory="102"></item><item android:id="@+id/action_textsize" android:title="@string/action_textsize">
+        <menu>
+            <item android:id="@+id/action_textsize_incr" android:title="@string/action_textsize_incr" />
+            <item android:id="@+id/action_textsize_decr" android:title="@string/action_textsize_decr" />
+        </menu>
+    </item><item android:id="@+id/action_tts" android:title="@string/action_tts"></item>
 
 </menu>
