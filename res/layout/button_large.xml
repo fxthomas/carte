@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/button_layout_outer"
+    android:padding="15dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1.0"
-    android:background="@drawable/background_button"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <ImageView
-        android:id="@+id/image"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="0.75"
-        android:paddingTop="20dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_order" />
+        android:layout_height="match_parent"
+        android:background="@drawable/background_button"
+        android:orientation="vertical"
+        android:weightSum="1.0" >
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.25"
-        android:gravity="center"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ffffffff" />
+        <ImageButton
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.75"
+            android:background="#00000000"
+            android:paddingTop="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_order" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffffff" />
+    </LinearLayout>
+
+</FrameLayout>
