@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/background_light">
+
+    <LinearLayout
+        android:id="@+id/fat_salade"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.25" >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="168dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/salad_platter" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayout1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="1.0" >
+
+                <TextView
+                    android:id="@+id/fatsalade"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:text="  Fat salade  $5"
+                    android:textColor="#f78e34"
+                    android:textSize="40dp" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar1"
+                    android:scaleType="fitXY"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="arial"
+                    android:text="Introduction du plat"
+                    android:textSize="30dp" />
+
+            </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

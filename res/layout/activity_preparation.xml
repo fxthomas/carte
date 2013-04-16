@@ -13,8 +13,8 @@
             android:id="@+id/frame_left"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.3" >
-            
+            android:layout_weight="0.4" >
+
             <ImageView
                 android:id="@+id/image_left"
                 android:layout_width="match_parent"
@@ -30,23 +30,99 @@
 
                 <LinearLayout
                     android:id="@+id/frame_left_content"
-                    android:layout_width="127dp"
+                    android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:orientation="vertical" >
 
-                    <TextView
-                        android:id="@+id/fatsalade"
+                    <LinearLayout
+                        android:id="@+id/fat_salade"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fat salade"
-                        android:textColor="#ffffff" />
-
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="64dp"
                         android:layout_height="54dp"
-                        android:src="@drawable/salad_platter" />
-                    
+                        android:layout_weight="1.25" >
+
+                        <LinearLayout
+                            android:id="@+id/fatsalade_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="54dp"
+                            android:layout_weight="30.50"
+                            android:weightSum="1.0" >
+
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="64dp"
+                                android:layout_height="54dp"
+                                android:src="@drawable/salad_platter" />
+
+                            <LinearLayout
+                                android:id="@+id/LinearLayout1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:weightSum="1.0" >
+
+                                <RatingBar
+                                    android:id="@+id/ratingBar1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.6"
+                                    android:numStars="5" />
+
+                                <TextView
+                                    android:id="@+id/fatsalade"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.4"
+                                    android:text="Fat salade  $5"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+         <LinearLayout
+                        android:id="@+id/fat_poulet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="54dp"
+                        android:layout_weight="1.25" >
+
+                        <LinearLayout
+                            android:id="@+id/fatpoulet_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="54dp"
+                            android:layout_weight="30.50"
+                            android:weightSum="1.0" >
+
+                            <ImageView
+                                android:id="@+id/imagefatpoulet"
+                                android:layout_width="64dp"
+                                android:layout_height="54dp"
+                                android:src="@drawable/turkey" />
+
+                            <LinearLayout
+                                android:id="@+id/LinearLayout1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:weightSum="1.0" >
+
+                                <RatingBar
+                                    android:id="@+id/ratingBar1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.6"
+                                    android:numStars="5" />
+
+                                <TextView
+                                    android:id="@+id/fatpoulet"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.4"
+                                    android:text="Fat poulet  $20"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
                 </LinearLayout>
             </ScrollView>
         </FrameLayout>
@@ -55,7 +131,7 @@
             android:id="@+id/frame_right"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.7" >
+            android:layout_weight="0.6" >
 
             <ImageView
                 android:id="@+id/image_right"
@@ -83,7 +159,7 @@
                     <ImageView
                         android:id="@+id/imageView2"
                         android:layout_width="wrap_content"
-                        android:layout_height="71dp"
+                        android:layout_height="76dp"
                         android:maxHeight="40dp"
                         android:maxWidth="60dp"
                         android:src="@drawable/salad_platter" />
@@ -91,16 +167,14 @@
                     <TextView
                         android:id="@+id/textView1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="43dp"
                         android:gravity="center"
                         android:text="Commande en preparation "
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:typeface="normal" />
-
-
                 </TableLayout>
             </ScrollView>
-        </FrameLayout>   
+        </FrameLayout>
     </LinearLayout>
 
 </RelativeLayout>
