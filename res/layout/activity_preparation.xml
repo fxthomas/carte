@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="1.0" >
+
+        <FrameLayout
+            android:id="@+id/frame_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3" >
+            
+            <ImageView
+                android:id="@+id/image_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/background_dark" />
+
+            <ScrollView
+                android:id="@+id/frame_left_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp" >
+
+                <LinearLayout
+                    android:id="@+id/frame_left_content"
+                    android:layout_width="127dp"
+                    android:layout_height="35dp"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/fatsalade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fat salade"
+                        android:textColor="#ffffff" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="64dp"
+                        android:layout_height="54dp"
+                        android:src="@drawable/salad_platter" />
+                    
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7" >
+
+            <ImageView
+                android:id="@+id/image_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/background_light" />
+
+            <ScrollView
+                android:id="@+id/frame_right_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TableLayout
+                    android:id="@+id/frame_right_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="119dp"
+                        android:src="@drawable/icon" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="71dp"
+                        android:maxHeight="40dp"
+                        android:maxWidth="60dp"
+                        android:src="@drawable/salad_platter" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Commande en preparation "
+                        android:textSize="25dp"
+                        android:typeface="normal" />
+
+
+                </TableLayout>
+            </ScrollView>
+        </FrameLayout>   
+    </LinearLayout>
+
+</RelativeLayout>
