@@ -1,5 +1,6 @@
 package com.example.carte;
 
+import android.app.*;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
