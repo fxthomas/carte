@@ -13,7 +13,17 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-	}
+
+    if (savedInstanceState == null) {
+      LeftWelcomeFragment leftfrag = new LeftWelcomeFragment();
+      RightWelcomeFragment rightfrag = new RightWelcomeFragment();
+
+      getFragmentManager().beginTransaction()
+              .replace(R.id.fragment_right, rightfrag)
+              .replace(R.id.fragment_left, leftfrag)
+              .commit();
+    }
+  }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -21,12 +31,10 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
 	public void changer(View v){
 		Intent intent = new Intent(this, Preparation.class);
     	String price = "jump to preparation";
     	intent.putExtra(EXTRA_MESSAGE2, price);
     	startActivity(intent);
 	}
-
 }

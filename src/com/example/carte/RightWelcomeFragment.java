@@ -1,15 +1,16 @@
 package com.example.carte;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.GridView;
-import android.widget.ArrayAdapter;
+import android.widget.*;
 
 class MyButton {
 	public int imageResId;
@@ -53,11 +54,27 @@ public class RightWelcomeFragment extends Fragment {
 		View v = inflater.inflate(R.layout.frag_right_welcome, container, false);
 		
 		Context c = this.getActivity();
-		MyButton buttons[] = {
+
+    MyButton[] buttons = {
 			new MyButton(R.drawable.ic_order, "Commander"),
-			new MyButton(R.drawable.ic_card, "Client régulier?")
+			new MyButton(R.drawable.ic_card, "Client r√©gulier?")
 		};
-		((GridView)v.findViewById(R.id.list)).setAdapter(new MyAdapter(c, buttons));
+
+    GridView gv = (GridView)v.findViewById(R.id.list);
+		gv.setAdapter(new MyAdapter(c, buttons));
+    gv.setOnItemClickListener(new GridView.OnItemClickListener() {
+      @Override
+      public void onItemClick (AdapterView parent, View view, int position, long id) {
+        Activity activity = getActivity();
+        FragmentManager fm = activity.getFragmentManager();
+
+        //FragmentTransaction ft = fm.beginTransaction();
+        //ft.replace(R.id.fragment_right, new TestLeftWelcomeFragment());
+        //ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        //ft.addToBackStack("Hello");
+        //ft.commit();
+      }
+    });
 		
 		return v;
 	}
