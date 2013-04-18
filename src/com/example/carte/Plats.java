@@ -8,7 +8,7 @@ public class Plats {
 	private static Plats instance = null;
 	
 	private ArrayList<Plat> plats;
-	
+
 	public Plats() {
 		plats = new ArrayList<Plat>();
 	}
@@ -21,10 +21,23 @@ public class Plats {
 		plats.add(p);
 	}
 	
-	public ArrayList<Plat> getPlatType(Type type) {
+	public void clear() {
+		plats.clear();
+	}
+	
+	public void incrementer(int id) {
+		for (Plat p : plats) {
+			if (p.getId() == id) {
+				p.ajouter();
+				break;
+			}
+		}
+	}
+	
+	public ArrayList<Plat> getPlatType(int type) {
 		ArrayList<Plat> platsType = new ArrayList<Plat>();
 		for (Plat p : plats) {
-			if (p.getType() == type)
+			if (p.getType().ordinal() == type)
 				platsType.add(p);
 		}
 		return platsType;

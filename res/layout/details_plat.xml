@@ -15,11 +15,17 @@
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent"
-           android:layout_weight="3" >
+           android:layout_weight="2" >
+
+           <TextView
+               android:id="@+id/id_details_plat"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+                android:visibility="gone" />
 
            <ImageView
                android:id="@+id/image_details_plat"
-               android:layout_width="wrap_content"
+               android:layout_width="100dp"
                android:layout_height="wrap_content"
                android:src="@drawable/background_button" />
 
@@ -27,7 +33,7 @@
                android:id="@+id/texte_details_plat"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="TextView" />
+               android:textColor="#ffffff" />
 
        </LinearLayout>
 
@@ -39,25 +45,29 @@
 
            <TextView
                android:id="@+id/description_details_plat"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="TextView" />
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:textColor="#ffffff"
+               android:layout_weight="0.3" />
 
            <LinearLayout
-               android:layout_width="wrap_content"
+               android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:orientation="vertical" >
+               android:orientation="vertical"
+               android:layout_weight="0.7" >
 
                <RatingBar
                    android:id="@+id/rating_details_plat"
+                   style="?android:attr/ratingBarStyleSmall"
                    android:layout_width="wrap_content"
-                   android:layout_height="wrap_content" />
+                   android:layout_height="wrap_content"
+                   android:numStars="5" />
 
                <TextView
                    android:id="@+id/prix_details_plat"
                    android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="TextView" />
+                   android:layout_height="match_parent"
+                   android:textColor="#ffffff" />
 
            </LinearLayout>
 

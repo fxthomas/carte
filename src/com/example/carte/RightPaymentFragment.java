@@ -42,8 +42,9 @@ class MyAdapterPayment extends ArrayAdapter<MyButtonPayment> {
 			row = inflater.inflate(R.layout.button_payment, parent, false);
 		}
 		
-		((ImageView)row.findViewById(R.id.image)).setImageResource(this.buttons[position].imageResId);
-		((TextView)row.findViewById(R.id.text)).setText(this.buttons[position].title);
+		((ImageView)row.findViewById(R.id.image_paiement)).setImageResource(this.buttons[position].imageResId);
+		((TextView)row.findViewById(R.id.texte_paiement)).setText(this.buttons[position].title);
+		((TextView)row.findViewById(R.id.description_paiement)).setText(this.buttons[position].comment);
 		
 		return row;
 	}

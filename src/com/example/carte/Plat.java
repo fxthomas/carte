@@ -1,6 +1,7 @@
 package com.example.carte;
 
 public class Plat {
+	private static int idActuel = 0;
 	
 	private String nom;
 	private String description;
@@ -9,8 +10,9 @@ public class Plat {
 	private int image;
 	private int quantite;
 	private Type type;
+	private int id;
 	
-	public static enum Type {ENTREE, DESSERT, PLAT};
+	public static enum Type {ENTREE, DESSERT, VIANDE};
 	
 	public Plat(String nom, String description, float prix, int note, int image, Type type) {
 		super();
@@ -20,6 +22,8 @@ public class Plat {
 		this.note = note;
 		this.image = image;
 		this.type = type;
+		this.id = idActuel;
+		idActuel++;
 		quantite = 0;
 	}
 
@@ -83,5 +87,9 @@ public class Plat {
 	
 	public Type getType() {
 		return type;
+	}
+	
+	public int getId() {
+		return id;
 	}
 }

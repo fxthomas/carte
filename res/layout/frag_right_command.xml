@@ -19,7 +19,8 @@
         <TableRow>
             <LinearLayout
 				android:layout_width="wrap_content"
-				android:layout_height="100dp"
+				android:layout_height="150dp"
+				android:padding="5dp"
 				android:background="@drawable/background_button"
 				android:orientation="vertical"
 				android:weightSum="1.0"
@@ -27,8 +28,8 @@
 				
 				<ImageButton
 					android:id="@+id/entree"
-					android:layout_width="wrap_content"
-					android:layout_height="0dp"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
 					android:layout_gravity="center"
 					android:layout_weight="0.75"
 					android:background="#00000000"
@@ -40,7 +41,8 @@
          
             <LinearLayout
 				android:layout_width="wrap_content"
-				android:layout_height="100dp"
+				android:layout_height="150dp"
+				android:padding="10dp"
 				android:background="@drawable/background_button"
 				android:orientation="vertical"
 				android:weightSum="1.0"
@@ -48,8 +50,8 @@
 				
 				<ImageButton
 					android:id="@+id/desserts"
-					android:layout_width="100dp"
-					android:layout_height="0dp"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
 					android:layout_gravity="center"
 					android:layout_weight="0.75"
 					android:background="#00000000"
@@ -62,7 +64,8 @@
         <TableRow>
              <LinearLayout
 				android:layout_width="wrap_content"
-				android:layout_height="100dp"
+				android:layout_height="150dp"
+				android:padding="5dp"
 				android:background="@drawable/background_button"
 				android:orientation="vertical"
 				android:weightSum="1.0"
@@ -71,7 +74,7 @@
 				<ImageButton
 					android:id="@+id/viande"
 					android:layout_width="match_parent"
-					android:layout_height="0dp"
+					android:layout_height="match_parent"
 					android:layout_gravity="center"
 					android:layout_weight="0.75"
 					android:background="#00000000"
@@ -82,20 +85,19 @@
              </LinearLayout>
              <LinearLayout
 				android:layout_width="wrap_content"
-				android:layout_height="100dp"
+				android:layout_height="150dp"
+				android:padding="5dp"
 				android:background="@drawable/background_button"
 				android:orientation="vertical"
 				android:weightSum="1.0"
 				android:layout_weight="0.25" >
 				
 				<ImageButton
-					android:id="@+id/viande"
 					android:layout_width="match_parent"
-					android:layout_height="0dp"
+					android:layout_height="match_parent"
 					android:layout_gravity="center"
 					android:layout_weight="0.75"
 					android:background="#00000000"
-					android:onClick="categorieViandes"
 					android:paddingTop="20dp"
 					android:scaleType="fitCenter"
 					android:src="@drawable/turkey" />
