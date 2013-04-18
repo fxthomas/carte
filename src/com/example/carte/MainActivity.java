@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
       RightWelcomeFragment rightfrag = new RightWelcomeFragment();
 
       getFragmentManager().beginTransaction()
-              .replace(R.id.fragment_right, rightfrag)
+              .replace(R.id.fragment_right_welcome, rightfrag)
               .replace(R.id.fragment_left, leftfrag)
               .commit();
       
