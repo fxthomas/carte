@@ -16,28 +16,29 @@
             android:layout_weight="0.3"
             android:background="@drawable/background_dark" >
 
-            <FrameLayout
+            <fragment
                 android:id="@+id/fragment_left"
+                android:name="com.example.carte.LeftWelcomeFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:layout="@layout/frag_left_welcome" />
         </ScrollView>
 
-        <LinearLayout
+        <ScrollView
             android:id="@+id/frame_right"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:background="@drawable/background_light"
-            android:orientation="vertical" >
+            android:background="@drawable/background_light" >
 
-            <FrameLayout
-                android:id="@+id/fragment_right"
+            <fragment
+                android:id="@+id/fragment1"
+                android:name="com.example.carte.RightWelcomeFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:layout="@layout/frag_right_welcome" 
-                />
-        </LinearLayout>
+                tools:layout="@layout/frag_right_welcome" />
+
+        </ScrollView>
     </LinearLayout>
 
 </RelativeLayout>
