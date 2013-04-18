@@ -7,14 +7,20 @@ public class Plat {
 	private float prix;
 	private int note;
 	private int image;
+	private int quantite;
+	private Type type;
 	
-	public Plat(String nom, String description, float prix, int note, int image) {
+	public static enum Type {ENTREE, DESSERT, PLAT};
+	
+	public Plat(String nom, String description, float prix, int note, int image, Type type) {
 		super();
 		this.nom = nom;
 		this.description = description;
 		this.prix = prix;
 		this.note = note;
 		this.image = image;
+		this.type = type;
+		quantite = 0;
 	}
 
 	public Plat() {
@@ -22,6 +28,15 @@ public class Plat {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void ajouter() {
+		quantite++;
+	}
+	
+	public void diminuer() {
+		if (quantite > 0)
+			quantite--;
+	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -40,6 +55,10 @@ public class Plat {
 
 	public float getPrix() {
 		return prix;
+	}
+	
+	public int getQuantite() {
+		return quantite;
 	}
 
 	public void setPrix(float prix) {
@@ -61,7 +80,8 @@ public class Plat {
 	public void setImage(int image) {
 		this.image = image;
 	}
-
 	
-	
+	public Type getType() {
+		return type;
+	}
 }

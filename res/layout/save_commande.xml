@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <FrameLayout
+            android:id="@+id/frame_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7" >
+
+            <ImageView
+                android:id="@+id/image_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/background_light" />
+            
+			 <ImageView
+		        android:id="@+id/logo"
+		        android:layout_width="match_parent"
+		        android:layout_height="165dp"
+		        android:layout_gravity="center"
+		        android:scaleType="centerInside"
+		        android:src="@drawable/icon" />
+			 
+            <ScrollView
+                android:id="@+id/frame_right_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="147dp" >
+
+                
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    
+                </GridLayout>
+
+            </ScrollView>
+            <TableLayout
+                    android:id="@+id/frame_right_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    
+                    
+                    <TableRow>
+                        <LinearLayout
+        				android:layout_width="150dp"
+        				android:layout_height="100dp"
+        				android:background="@drawable/background_button"
+        				android:orientation="vertical"
+        				android:weightSum="1.0" >
+
+        				<ImageButton
+            			android:id="@+id/entree"
+            			android:layout_width="wrap_content"
+            			android:layout_height="0dp"
+            			android:layout_gravity="center"
+            			android:layout_weight="0.75"
+            			android:background="#00000000"
+            			android:onClick="categorieEntrees"
+            			android:paddingTop="20dp"
+            			android:scaleType="fitCenter"
+            			android:src="@drawable/salad_platter" />
+        				
+        				
+                        </LinearLayout>
+                     
+                        <LinearLayout
+        				android:layout_width="150dp"
+        				android:layout_height="100dp"
+        				android:background="@drawable/background_button"
+        				android:orientation="vertical"
+        				android:weightSum="1.0" >
+
+        				<ImageButton
+            			android:id="@+id/desserts"
+            			android:layout_width="100dp"
+            			android:layout_height="0dp"
+            			android:layout_gravity="center"
+            			android:layout_weight="0.75"
+            			android:background="#00000000"
+            			android:onClick="categorieDesserts"
+            			android:paddingTop="20dp"
+            			android:scaleType="fitCenter"
+            			android:src="@drawable/gateau" />
+                        </LinearLayout>
+                        
+                        
+                    </TableRow>
+                    
+                    <TableRow>
+                         <LinearLayout
+        				android:layout_width="150dp"
+        				android:layout_height="100dp"
+        				android:background="@drawable/background_button"
+        				android:orientation="vertical"
+        				android:weightSum="1.0" >
+
+        				<ImageButton
+            			android:id="@+id/viande"
+            			android:layout_width="match_parent"
+            			android:layout_height="0dp"
+            			android:layout_gravity="center"
+            			android:layout_weight="0.75"
+            			android:background="#00000000"
+            			android:onClick="categorieViandes"
+            			android:paddingTop="20dp"
+            			android:scaleType="fitCenter"
+            			android:src="@drawable/turkey" />
+                        </LinearLayout>
+                    </TableRow>
+                </TableLayout>
+        </FrameLayout>
+
+</LinearLayout>

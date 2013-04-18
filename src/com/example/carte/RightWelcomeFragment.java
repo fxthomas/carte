@@ -66,7 +66,7 @@ public class RightWelcomeFragment extends Fragment {
 		        FragmentManager fm = activity.getFragmentManager();
 		
 		        FragmentTransaction ft = fm.beginTransaction();
-		        ft.replace(R.id.fragment_left, new LeftMenuFragment());
+		        ft.replace(R.id.fragment_right, new RightCategoriesFragment());
 		        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 		        ft.addToBackStack("Commander");
 		        ft.commit();
