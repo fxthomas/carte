@@ -1,10 +1,6 @@
 package com.example.carte;
 
 import android.app.*;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -56,26 +52,26 @@ public class RightWelcomeFragment extends Fragment {
 		
 		Context c = this.getActivity();
 
-    MyButton[] buttons = {
-			new MyButton(R.drawable.ic_order, "Commander"),
-			new MyButton(R.drawable.ic_card, "Client rÃ©gulier?")
+	    MyButton[] buttons = {
+				new MyButton(R.drawable.ic_order, "Commander"),
+				new MyButton(R.drawable.ic_card, "Client régulier ?")
 		};
 
-    GridView gv = (GridView)v.findViewById(R.id.list);
+	    GridView gv = (GridView)v.findViewById(R.id.list);
 		gv.setAdapter(new MyAdapter(c, buttons));
-    gv.setOnItemClickListener(new GridView.OnItemClickListener() {
-      @Override
-      public void onItemClick (AdapterView parent, View view, int position, long id) {
-        Activity activity = getActivity();
-        FragmentManager fm = activity.getFragmentManager();
-
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.fragment_left, new LeftMenuFragment());
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.addToBackStack("Commander");
-        ft.commit();
-      }
-    });
+	    gv.setOnItemClickListener(new GridView.OnItemClickListener() {
+	    	@Override
+	    	public void onItemClick (AdapterView parent, View view, int position, long id) {
+		        Activity activity = getActivity();
+		        FragmentManager fm = activity.getFragmentManager();
+		
+		        FragmentTransaction ft = fm.beginTransaction();
+		        ft.replace(R.id.fragment_left, new LeftMenuFragment());
+		        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+		        ft.addToBackStack("Commander");
+		        ft.commit();
+	    	}
+	    });
 		
 		return v;
 	}

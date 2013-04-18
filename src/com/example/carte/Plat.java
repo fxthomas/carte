@@ -2,11 +2,11 @@ package com.example.carte;
 
 public class Plat {
 	
-	String nom;
-	String description;
-	float prix;
-	int note;
-	int image;
+	private String nom;
+	private String description;
+	private float prix;
+	private int note;
+	private int image;
 	
 	public Plat(String nom, String description, float prix, int note, int image) {
 		super();

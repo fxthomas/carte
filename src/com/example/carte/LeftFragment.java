@@ -6,9 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TestLeftWelcomeFragment extends Fragment {
+public class LeftFragment extends Fragment {
+	private int layoutId;
+	
+	public void setArguments(int layoutId) {
+		this.layoutId = layoutId;
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.frag_left_welcome, container, false);
+		return inflater.inflate(layoutId, container, false);
 	}
 }

@@ -12,37 +12,39 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
 	public final static String EXTRA_MESSAGE2 = "com.example.carte.CHANGER";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Plat plat1 = new Plat("salade niçoise", "Excellente salade", 21, 3, 0x7f02000e);
-		Plat plat2 = new Plat("salade viennoise", "Excellente salade", 21, 3, 0x7f02000e);
-		Plat plat3 = new Plat("salade niçoise", "Excellente salade", 21, 3, 0x7f02000e);
-		ArrayList<Plat> plats = new ArrayList<Plat>();
-		plats.add(plat1);
-		plats.add(plat2);
-		plats.add(plat3);
+		Plat plat1 = new Plat("salade niçoise", "Excellente salade", 21, 3, R.drawable.gateau);
+		Plat plat2 = new Plat("salade viennoise", "Excellente salade", 21, 3, R.drawable.gateau);
+		Plat plat3 = new Plat("fat salade", "Excellente salade", 21, 3, R.drawable.gateau);
+		Plats plats = Plats.getInstance();
+		plats.addPlat(plat1);
+		plats.addPlat(plat2);
+		plats.addPlat(plat3);
 		
 		
-    if (savedInstanceState == null) {
-      LeftWelcomeFragment leftfrag = new LeftWelcomeFragment();
-      RightWelcomeFragment rightfrag = new RightWelcomeFragment();
+	    if (savedInstanceState == null) {
+	    	LeftWelcomeFragment leftfrag = new LeftWelcomeFragment();
+	    	RightWelcomeFragment rightfrag = new RightWelcomeFragment();
+	    	
+           /* Fragment fragTwo = new MyFragment();
+            Bundle arguments = new Bundle();
+            arguments.putBoolean("shouldYouCreateAChildFragment", false);
+            fragTwo.setArguments(arguments);*/
 
-      getFragmentManager().beginTransaction()
-              .replace(R.id.fragment_right_welcome, rightfrag)
-              .replace(R.id.fragment_left, leftfrag)
-              .commit();
+	    	getFragmentManager().beginTransaction()
+	    		.add(R.id.fragment_right, rightfrag)
+	    		.add(R.id.fragment_left, leftfrag)
+	    		.commit();
       
-      ImageView image = new ImageView(this);
-      image.setImageResource(R.drawable.gateau);
-      LinearLayout l = (LinearLayout) findViewById(R.id.text_linearlayout);
-      l.addView(image);
+	   
       
-    }
-    
-  }
+	    }
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
