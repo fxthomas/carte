@@ -68,11 +68,11 @@ public class RightWelcomeFragment extends Fragment {
         Activity activity = getActivity();
         FragmentManager fm = activity.getFragmentManager();
 
-        //FragmentTransaction ft = fm.beginTransaction();
-        //ft.replace(R.id.fragment_right, new TestLeftWelcomeFragment());
-        //ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        //ft.addToBackStack("Hello");
-        //ft.commit();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fragment_right, new TestLeftWelcomeFragment());
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.addToBackStack("Hello");
+        ft.commit();
       }
     });
 		
