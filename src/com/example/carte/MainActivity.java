@@ -36,7 +36,12 @@ public class MainActivity extends Activity {
 		Plat plat7 = new Plat("Dinde", "Dinde aux marrons", 50, 4, R.drawable.turkey, Type.VIANDE);
 		Plat plat8 = new Plat("Turkey", "Thanksgiving is coming", 70, 5, R.drawable.turkey, Type.VIANDE);
 		Plat plat9 = new Plat("Dindon", "Dindon", 25, 1, R.drawable.turkey, Type.VIANDE);
-		
+
+    Plat plat13 = new Plat("Cocktail 1", "Un délicieux cocktail", 8, 4, R.drawable.drink, Type.BOISSON);
+    Plat plat14 = new Plat("Cocktail 2", "Un cocktail", 7, 4, R.drawable.drink, Type.BOISSON);
+    Plat plat15 = new Plat("Cocktail 3", "Amazing cocktail!", 9, 4, R.drawable.drink, Type.BOISSON);
+    Plat plat16 = new Plat("Cocktail 4", "Un autre cocktail", 5, 4, R.drawable.drink, Type.BOISSON);
+
 		plats.addPlat(plat1);
 		plats.addPlat(plat2);
 		plats.addPlat(plat3);
@@ -49,6 +54,10 @@ public class MainActivity extends Activity {
 		plats.addPlat(plat10);
 		plats.addPlat(plat11);
 		plats.addPlat(plat12);
+    plats.addPlat(plat13);
+    plats.addPlat(plat14);
+    plats.addPlat(plat15);
+    plats.addPlat(plat16);
 	}
 	
 	@Override
@@ -111,7 +120,21 @@ public class MainActivity extends Activity {
 		    .addToBackStack("Viandes")
 			.commit();
 	}
-	
+
+  public void categorieBoissons(View view) {
+    RightListePlatsFragment frag_right = new RightListePlatsFragment();
+    Bundle args = new Bundle();
+    args.putInt("type", Type.BOISSON.ordinal());
+    frag_right.setArguments(args);
+
+    getFragmentManager().beginTransaction()
+            .replace(R.id.fragment_left, new LeftMenuFragment())
+            .replace(R.id.fragment_right, frag_right)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .addToBackStack("Boissons")
+            .commit();
+  }
+
 	public void confirmer(View view) {
 		LeftMenuFragment left_frag = new LeftMenuFragment();
 		Bundle args = new Bundle();

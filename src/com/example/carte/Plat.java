@@ -12,7 +12,7 @@ public class Plat {
 	private Type type;
 	private int id;
 	
-	public static enum Type {ENTREE, DESSERT, VIANDE};
+	public static enum Type {ENTREE, DESSERT, VIANDE, BOISSON};
 	
 	public Plat(String nom, String description, float prix, int note, int image, Type type) {
 		super();
