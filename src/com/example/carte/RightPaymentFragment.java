@@ -59,9 +59,9 @@ public class RightPaymentFragment extends Fragment {
 		Context c = this.getActivity();
 		MyButtonPayment buttons[] = {
 			new MyButtonPayment(R.drawable.ic_creditcard, "Carte bancaire", "Passez-la dans le lecteur."),
-			new MyButtonPayment(R.drawable.ic_card, "Carte de fidélité", "Passez-la dans le lecteur"),
+			new MyButtonPayment(R.drawable.ic_card, "Carte de fidÃ©litÃ©", "Passez-la dans le lecteur"),
 			new MyButtonPayment(R.drawable.ic_phone, "Vous avez l'app ?", "Scannez le code sur la table !"),
-			new MyButtonPayment(R.drawable.ic_service, "Autres?", "Appel à un serveur")
+			new MyButtonPayment(R.drawable.ic_service, "Autres?", "Appel Ã  un serveur")
 		};
 		((GridView)v.findViewById(R.id.list)).setAdapter(new MyAdapterPayment(c, buttons));
 		

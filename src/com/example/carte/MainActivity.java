@@ -22,16 +22,16 @@ public class MainActivity extends Activity {
 		Plats plats = Plats.getInstance();
 		plats.clear();
 		
-		Plat plat1 = new Plat("Salade niÁoise", "Excellente salade niÁoise", 21, 3, R.drawable.salad_platter, Type.ENTREE);
+		Plat plat1 = new Plat("Salade ni√ßoise", "Excellente salade ni√ßoise", 21, 3, R.drawable.salad_platter, Type.ENTREE);
 		Plat plat2 = new Plat("Salade viennoise", "Salade viennoise excellente", 21, 2, R.drawable.salad_platter, Type.ENTREE);
 		Plat plat3 = new Plat("Fat salade", "Fat Fat salade", 21, 4, R.drawable.salad_platter, Type.ENTREE);
 		
-		Plat plat4 = new Plat("Gateau", "Un Ènorme g‚teau caramel-choco", 2.5f, 5, R.drawable.gateau, Type.DESSERT);
-		Plat plat5 = new Plat("Gateau2", "Un Ènorme g‚teau caramel-choco", 5, 3, R.drawable.gateau, Type.DESSERT);
-		Plat plat6 = new Plat("Gateau3", "Un Ènorme g‚teau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
-		Plat plat10= new Plat("Gateau", "Un Ènorme g‚teau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
-		Plat plat11 = new Plat("Gateau2", "Un Ènorme g‚teau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
-		Plat plat12 = new Plat("Gateau3", "Un Ènorme g‚teau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat4 = new Plat("Gateau", "Un √©norme g√¢teau caramel-choco", 2.5f, 5, R.drawable.gateau, Type.DESSERT);
+		Plat plat5 = new Plat("Gateau2", "Un √©norme g√¢teau caramel-choco", 5, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat6 = new Plat("Gateau3", "Un √©norme g√¢teau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat10= new Plat("Gateau", "Un √©norme g√¢teau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat11 = new Plat("Gateau2", "Un √©norme g√¢teau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat12 = new Plat("Gateau3", "Un √©norme g√¢teau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
 		
 		Plat plat7 = new Plat("Dinde", "Dinde aux marrons", 50, 4, R.drawable.turkey, Type.VIANDE);
 		Plat plat8 = new Plat("Turkey", "Thanksgiving is coming", 70, 5, R.drawable.turkey, Type.VIANDE);
@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
 			.replace(R.id.fragment_left, new LeftMenuFragment())
 			.replace(R.id.fragment_right, frag_right)
 			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("entrees")
+		    .addToBackStack("Entrees")
 			.commit();
 	}
 	
@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
 			.replace(R.id.fragment_left, new LeftMenuFragment())
 			.replace(R.id.fragment_right, frag_right)
 			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("desserts")
+		    .addToBackStack("Desserts")
 			.commit();
 	}
 	
@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
 			.replace(R.id.fragment_left, new LeftMenuFragment())
 			.replace(R.id.fragment_right, frag_right)
 			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("viandes")
+		    .addToBackStack("Viandes")
 			.commit();
 	}
 	
@@ -121,7 +121,7 @@ public class MainActivity extends Activity {
 		getFragmentManager().beginTransaction()
 			.replace(R.id.fragment_left, left_frag)
 			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("confirmation")
+		    .addToBackStack("Confirmation")
 			.commit();
 	}
 	
@@ -150,7 +150,7 @@ public class MainActivity extends Activity {
 		getFragmentManager().beginTransaction()
 			.replace(R.id.fragment_right, right_frag)
 			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("paiement")
+		    .addToBackStack("Paiement")
 			.commit();
 	}
 
