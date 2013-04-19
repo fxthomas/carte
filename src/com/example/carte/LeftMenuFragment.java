@@ -2,6 +2,7 @@ package com.example.carte;
 
 import java.util.ArrayList;
 
+import android.widget.*;
 import com.example.carte.Plat.Type;
 
 import android.app.Fragment;
@@ -12,10 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.RatingBar;
 
 
 public class LeftMenuFragment extends Fragment {
@@ -62,11 +59,16 @@ public class LeftMenuFragment extends Fragment {
               v.findViewById(R.id.layout_comment).setVisibility(View.VISIBLE);
               v.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v2) { hide(v); }
+                public void onClick(View v2) {
+                  hide(v);
+                }
               });
               v.findViewById(R.id.btn_ok).setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v2) { hide(v); }
+                public void onClick(View v2) {
+                  hide(v);
+                  Toast.makeText(getActivity().getApplicationContext(), "Commentaire envoyé!", Toast.LENGTH_LONG).show();
+                }
               });
               displayingComments = true;
             }
