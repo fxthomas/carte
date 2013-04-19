@@ -49,16 +49,32 @@ public class LeftMenuFragment extends Fragment {
           vuePlat.setOnClickListener(new View.OnClickListener() {
             boolean displayingComments = false;
 
+            void hide(View v) {
+              v.findViewById(R.id.layout_comment).setVisibility(View.GONE);
+              v.setBackgroundColor(Color.parseColor("#00000000"));
+              v.findViewById(R.id.btn_cancel).setOnClickListener(null);
+              v.findViewById(R.id.btn_ok).setOnClickListener(null);
+              displayingComments = false;
+            }
+
+            void show(final View v) {
+              v.setBackgroundColor(Color.parseColor("#99000000"));
+              v.findViewById(R.id.layout_comment).setVisibility(View.VISIBLE);
+              v.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v2) { hide(v); }
+              });
+              v.findViewById(R.id.btn_ok).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v2) { hide(v); }
+              });
+              displayingComments = true;
+            }
+
             @Override
             public void onClick(View v) {
-              if (displayingComments) {
-                v.findViewById(R.id.layout_comment).setVisibility(View.GONE);
-              } else {
-                v.findViewById(R.id.layout_comment).setVisibility(View.VISIBLE);
-              }
-
-              displayingComments = !displayingComments;
-
+              if (displayingComments) hide(v);
+              else show(v);
             }
           });
 
