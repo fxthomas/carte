@@ -1,60 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_plat"
-    android:padding="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-   <LinearLayout
-      android:id="@+id/element_plat"
-      android:layout_width="match_parent"
-      android:layout_height="54dp"
-      android:layout_weight="1.25" >
-
-      <ImageView
-          android:id="@+id/image_plat"
-          android:layout_width="100dp"
-          android:layout_height="54dp"
-          android:src="@drawable/salad_platter" />
-
-      <LinearLayout
-          android:layout_width="0dp"
-          android:layout_height="match_parent"
-          android:layout_weight="1"
-          android:orientation="vertical"
-          android:weightSum="1.0" >
-
-          <LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/layout_plat"
+              android:padding="10dp"
+              android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content" >
 
-              <TextView
+  <LinearLayout
+          android:id="@+id/layout_plat"
+          android:padding="10dp"
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" >
+    <LinearLayout
+            android:id="@+id/element_plat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+      <ImageView
+              android:id="@+id/image_plat"
+              android:layout_width="100dp"
+              android:layout_height="wrap_content"
+              android:adjustViewBounds="true"
+              android:scaleType="fitCenter"
+              android:src="@drawable/salad_platter" />
+
+      <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+          <TextView
                   android:id="@+id/texte_plat"
                   android:layout_width="wrap_content"
-                  android:layout_height="match_parent"
+                  android:layout_height="wrap_content"
                   android:layout_weight="1"
+                  android:text="Texte"
                   android:textColor="#ffffff" />
 
-              <TextView
+          <TextView
                   android:id="@+id/prix_plat"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:layout_weight="0.2"
-                  android:textColor="#ffffff" 
-                  android:layout_alignParentRight="true"
-                   />
+                  android:textColor="#ffffff"
+                  android:text="Prix"
+                  android:layout_alignParentRight="true" />
 
-          </LinearLayout>
+        </LinearLayout>
 
-          <RatingBar
-              android:id="@+id/rating_plat"
-              style="?android:attr/ratingBarStyleSmall"
-              android:layout_width="wrap_content"
-              android:layout_height="0dp"
-              android:layout_weight="0.6"
-              android:numStars="5" />
+        <RatingBar
+                android:id="@+id/rating_plat"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5" />
 
       </LinearLayout>
-  </LinearLayout>
 
-</FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/layout_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+      <EditText
+              android:id="@+id/rating_title"
+              android:text="Texte"
+              android:textColor="#ffffff"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
+
+      <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+        <Button
+                android:id="@+id/btn_cancel"
+                android:text="Annuler"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <Button
+                android:id="@+id/btn_ok"
+                android:text="Envoyer"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+      </RelativeLayout>
+    </LinearLayout>
+  </LinearLayout>
+</LinearLayout>

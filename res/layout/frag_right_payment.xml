@@ -1,50 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-<LinearLayout 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1.0"
-    android:orientation="vertical" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:weightSum="1.0"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" >
 
-    <ImageView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.09"
-        android:src="@drawable/icon" />
+  <ImageView
+          android:id="@+id/title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="0.09"
+          android:src="@drawable/icon" />
 
-    <EditText
-        android:id="@+id/textChoosePayment"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:background="@drawable/background_button_small"
-        android:ems="10"
-        android:gravity="center"
-        android:paddingLeft="0dp"
-        android:text="Choisissez votre méthode de paiement"
-        android:textColor="#ffffffff"
-        android:textSize="30sp" >
+  <EditText
+          android:id="@+id/textChoosePayment"
+          android:layout_width="match_parent"
+          android:layout_height="77dp"
+          android:background="@drawable/background_button_small"
+          android:ems="10"
+          android:gravity="center"
+          android:paddingLeft="0dp"
+          android:text="Choisissez votre méthode de paiement"
+          android:textColor="#ffffffff"
+          android:textSize="30sp" >
 
-        <requestFocus />
-    </EditText>
-    
-    <GridView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.10"
-        android:columnWidth="0dp"
-        android:numColumns="2"
-        tools:listitem="@layout/button_payment" >
+    <requestFocus />
+  </EditText>
 
-    </GridView>
+  <GridView
+          android:id="@+id/list"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="0.10"
+          android:columnWidth="0dp"
+          android:numColumns="2"
+          tools:listitem="@layout/button_payment" >
 
-    
-
+  </GridView>
 </LinearLayout>
-
-</TableLayout>

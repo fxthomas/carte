@@ -1,43 +1,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity" >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:weightSum="1.0" >
+  <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:weightSum="1.0" >
 
-        <ScrollView
+    <ScrollView
             android:id="@+id/frame_left"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.3"
             android:background="@drawable/background_dark" >
 
-            <LinearLayout
-                android:id="@+id/fragment_left"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </ScrollView>
+      <LinearLayout
+              android:id="@+id/fragment_left"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
+    </ScrollView>
 
-        <ScrollView
+    <ScrollView
             android:id="@+id/frame_right"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
             android:background="@drawable/background_light" >
 
-            <LinearLayout
-                android:id="@+id/fragment_right"
-                
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+      <LinearLayout
+              android:id="@+id/fragment_right"
 
-        </ScrollView>
-    </LinearLayout>
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
 
+    </ScrollView>
+  </LinearLayout>
 </RelativeLayout>

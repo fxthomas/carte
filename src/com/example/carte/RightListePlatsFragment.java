@@ -43,24 +43,22 @@ public class RightListePlatsFragment extends Fragment {
     		((ImageView) vuePlat.findViewById(R.id.image_details_plat)).setImageResource(plats.get(i).getImage());
     		((TextView) vuePlat.findViewById(R.id.texte_details_plat)).setText(plats.get(i).getNom());
     		((TextView) vuePlat.findViewById(R.id.description_details_plat)).setText(plats.get(i).getDescription());
-    		((TextView) vuePlat.findViewById(R.id.prix_details_plat)).setText(Float.toString(plats.get(i).getPrix()) + "€");
+    		((TextView) vuePlat.findViewById(R.id.prix_details_plat)).setText(Float.toString(plats.get(i).getPrix()) + "â‚¬");
     		((RatingBar) vuePlat.findViewById(R.id.rating_details_plat)).setRating(plats.get(i).getNote());
     		((TextView) vuePlat.findViewById(R.id.id_details_plat)).setText(Integer.toString(plats.get(i).getId()));
-    		
-    		vuePlat.setOnClickListener(new OnClickListener() {
-    	    	@Override
-                public void onClick(View v) {
-    		        Plats.getInstance().incrementer(Integer.parseInt(((TextView)v.findViewById(R.id.id_details_plat)).getText().toString()));
-    		        getFragmentManager().beginTransaction()
-	    				.replace(R.id.fragment_left, new LeftMenuFragment())
-	    				.commit();
-    	    	}
-    	    });
-    		l.addView(vuePlat);
+
+        vuePlat.setOnClickListener(new OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            Plats.getInstance().incrementer(Integer.parseInt(((TextView)v.findViewById(R.id.id_details_plat)).getText().toString()));
+            getFragmentManager().beginTransaction()
+            .replace(R.id.fragment_left, new LeftMenuFragment())
+            .commit();
+          }
+        });
+        l.addView(vuePlat);
     	}
     	
     	return v;
 	}
 }
-
-

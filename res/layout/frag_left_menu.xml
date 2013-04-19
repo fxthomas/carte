@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/background_light"
-    android:orientation="vertical" >
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/background_light"
+              android:orientation="vertical" >
 
-   <FrameLayout
-            android:id="@+id/frame_left"
+  <FrameLayout
+          android:id="@+id/frame_left"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_weight="0.3" >
+
+    <ImageView
+            android:id="@+id/image_left"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.3" >
+            android:scaleType="fitXY"
+            android:src="@drawable/background_dark" />
 
-            <ImageView
-                android:id="@+id/image_left"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/background_dark" />
+    <ScrollView
+            android:id="@+id/frame_left_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" >
 
-            <ScrollView
-                android:id="@+id/frame_left_scroll"
+      <LinearLayout
+              android:id="@+id/frame_left_content"
+              android:layout_width="match_parent"
+              android:layout_height="35dp"
+              android:orientation="vertical" >
+
+        <LinearLayout
+                android:id="@+id/liste_plats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp" >
+                tools:listitem="@layout/plat"
+                android:orientation="vertical" >
+        </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/frame_left_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:orientation="vertical" >
-                    
-                   <LinearLayout
-				        android:id="@+id/liste_plats"
-				        android:layout_width="match_parent"
-				        android:layout_height="wrap_content"
-				        tools:listitem="@layout/plat"
-				        android:orientation="vertical" >
-				    </LinearLayout>
-				    
-				
-				<LinearLayout
-                    android:id="@+id/frame_left_content2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    
-                    <LinearLayout
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
 
-                        <Button
-                            android:id="@+id/bouton_confirmer"
-                            android:layout_width="0dp"
-                            android:layout_weight="0.2"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/background_button_small"
-                            android:text="Confirmer" 
-                            android:textColor="#ffffff"
-                            android:onClick="confirmer"/>
-                        
-                        <Button
-                            android:id="@+id/bouton_payer"
-                            android:layout_width="0dp"
-                            android:layout_weight="0.2"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/background_button_small"
-                            android:text="Payer" 
-                            android:textColor="#ffffff"
-                            android:visibility="gone"
-                            android:onClick="payer"/>
-                        
-						<TextView
-                                android:id="@+id/empty1"
-                                android:layout_width="0dp"
-                                android:layout_weight="0.5"
-                                android:layout_height="match_parent"
-                                android:text="                                      "
-                                android:textColor="#ffffff" />
+        <LinearLayout
+                android:id="@+id/frame_left_content2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
-                        <TextView
-                            android:id="@+id/prix"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.3"
-                            android:background="@drawable/background_button_small"
-                            android:gravity="center"
-                            android:paddingRight="0dp"
-                            android:textColor="#ffffff" />
+          <LinearLayout
+                  android:id="@+id/button"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" >
 
-                    </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </ScrollView>
-        </FrameLayout>
+            <Button
+                    android:id="@+id/bouton_confirmer"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background_button_small"
+                    android:text="Confirmer"
+                    android:textColor="#ffffff"
+                    android:onClick="confirmer"/>
+
+            <Button
+                    android:id="@+id/bouton_payer"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background_button_small"
+                    android:text="Payer"
+                    android:textColor="#ffffff"
+                    android:visibility="gone"
+                    android:onClick="payer"/>
+
+            <TextView
+                    android:id="@+id/empty1"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent"
+                    android:text="                                      "
+                    android:textColor="#ffffff" />
+
+            <TextView
+                    android:id="@+id/prix"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/background_button_small"
+                    android:gravity="center"
+                    android:paddingRight="0dp"
+                    android:textColor="#ffffff" />
+
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+    </ScrollView>
+  </FrameLayout>
 </LinearLayout>

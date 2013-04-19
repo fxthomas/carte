@@ -41,12 +41,31 @@ public class LeftMenuFragment extends Fragment {
 	    		View vuePlat = inflater.inflate(R.layout.plat, container, false);
 	    		((ImageView) vuePlat.findViewById(R.id.image_plat)).setImageResource(plats.get(i).getImage());
 	    		((TextView) vuePlat.findViewById(R.id.texte_plat)).setText(plats.get(i).getNom() + " (" + quantite + ")");
-	    		((TextView) vuePlat.findViewById(R.id.prix_plat)).setText(Float.toString(prixPlat) + "€");
+	    		((TextView) vuePlat.findViewById(R.id.prix_plat)).setText(Float.toString(prixPlat) + "â‚¬");
 	    		((RatingBar) vuePlat.findViewById(R.id.rating_plat)).setRating(plats.get(i).getNote());
+
+          vuePlat.findViewById(R.id.layout_comment).setVisibility(View.GONE);
+
+          vuePlat.setOnClickListener(new View.OnClickListener() {
+            boolean displayingComments = false;
+
+            @Override
+            public void onClick(View v) {
+              if (displayingComments) {
+                v.findViewById(R.id.layout_comment).setVisibility(View.GONE);
+              } else {
+                v.findViewById(R.id.layout_comment).setVisibility(View.VISIBLE);
+              }
+
+              displayingComments = !displayingComments;
+
+            }
+          });
+
 	    		l.addView(vuePlat);
     		}
     	}
-    	((TextView) v.findViewById(R.id.prix)).setText(Float.toString(prixTotal) + "€");
+    	((TextView) v.findViewById(R.id.prix)).setText(Float.toString(prixTotal) + "â‚¬");
 		
     	if (mode.equals("confirmation")) {
     		View confirmation = inflater.inflate(R.layout.confimer, container, false);
@@ -54,7 +73,7 @@ public class LeftMenuFragment extends Fragment {
     	}
     	else if (mode.equals("confirme")) {
     		TextView confirme = new TextView(getActivity());
-    		confirme.setText("Commande confirmée");
+    		confirme.setText("Commande confirmÃ©e");
     		confirme.setTextColor(Color.WHITE);
     		l.addView(confirme);
     		v.findViewById(R.id.bouton_confirmer).setVisibility(View.GONE);
