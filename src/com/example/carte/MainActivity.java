@@ -1,22 +1,52 @@
 package com.example.carte;
 
-import java.util.ArrayList;
-
-import com.example.carte.Plat.Type;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Intent;
+import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Toast;
+import com.example.carte.Plat.Type;
 
-public class MainActivity extends Activity {
+import android.speech.tts.UtteranceProgressListener;
+import android.speech.tts.TextToSpeech;
+import android.speech.RecognizerIntent;
+import android.content.Intent;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Locale;
+
+public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
+
+  public interface SpeechInputListener {
+    public boolean onSpeechInputFinished(String s);
+    public void onSpeechInputInitialized();
+  }
+
+  protected SpeechInputListener listener = null;
+
+  public void registerSpeechInput(SpeechInputListener f) {
+    listener = (SpeechInputListener)f;
+    if (_isTTSEnabled) listener.onSpeechInputInitialized();
+  }
+
+  public void unregisterSpeechInput() {
+    listener = null;
+  }
+
+  public void ask(String s) {
+    HashMap<String, String> map = new HashMap<String, String>();
+    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, s);
+    tts.speak(s, TextToSpeech.QUEUE_ADD, map);
+  }
+
 	public final static String EXTRA_MESSAGE2 = "com.example.carte.CHANGER";
+  boolean _isTTSEnabled = false;
 	
 	private void chargerPlats() {
 		Plats plats = Plats.getInstance();
@@ -59,7 +89,161 @@ public class MainActivity extends Activity {
     plats.addPlat(plat15);
     plats.addPlat(plat16);
 	}
-	
+
+  /**
+   * Speech stuff
+   */
+  TextToSpeech tts = null;
+  private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
+
+  class UPL extends UtteranceProgressListener {
+    /**
+     * Called when the TTS engine started saying something
+     * @param s
+     */
+    @Override
+    public void onStart(String s) {  }
+
+    /**
+     * Called when the TTS engine finished saying something
+     * @param s
+     */
+    @Override
+    public void onDone(String s) {
+      runOnUiThread(new Runnable() {
+        @Override
+        public void run() { stt_ask(); }
+      });
+    }
+
+    /**
+     * Called when the TTS engine stopped saying something
+     * @param s
+     */
+    @Override
+    public void onError(String s) {
+      showToastMessage("Error...");
+      stt_ask();
+    }
+  }
+
+  /**
+   * Returns the current TTS engine
+   * @return a TTS engine
+   */
+  TextToSpeech getTts() {
+    if (tts == null) {
+      tts = new TextToSpeech(this, this);
+    }
+    return tts;
+  }
+
+  /**
+   * Start the TTS engine
+   */
+  public void tts_start() {
+    tts = getTts();
+  }
+
+  /**
+   * Stop the TTS engine
+   */
+  public void tts_stop() {
+    tts.shutdown();
+    tts = null;
+  }
+
+  /**
+   * Ask the user to say something!
+   */
+  public void stt_ask() {
+    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+
+    // Specify the calling package to identify your application
+    intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, getClass()
+            .getPackage().getName());
+
+    // Display an hint to the user about what he should say.
+    intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Parlez!");
+
+    // Given an hint to the recognizer about what the user is going to say
+    //There are two form of language model available
+    //1.LANGUAGE_MODEL_WEB_SEARCH : For short phrases
+    //2.LANGUAGE_MODEL_FREE_FORM  : If not sure about the words or phrases and its domain.
+    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_WEB_SEARCH);
+
+    // Default language is FR
+    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.FRENCH.toString());
+
+    // Start the activity
+    startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
+  }
+
+  /**
+   * Called when the TTS engine finished its initialization
+   * @param i
+   */
+  @Override
+  public void onInit(int i) {
+    tts.setLanguage(Locale.FRENCH);
+    tts.setOnUtteranceProgressListener(new UPL());
+    _isTTSEnabled = true;
+    if (listener != null) listener.onSpeechInputInitialized();
+  }
+
+  /**
+   * Called when the speech recognition activity ends
+   * @param requestCode
+   * @param resultCode
+   * @param data
+   */
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == VOICE_RECOGNITION_REQUEST_CODE)
+
+      //If Voice recognition is successful then it returns RESULT_OK
+      if(resultCode == Activity.RESULT_OK) {
+
+        ArrayList<String> textMatchList = data
+                .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+
+        if (!textMatchList.isEmpty()) {
+          // Log results
+          Log.i("Speech-to-text", "Got result " + textMatchList.get(0));
+
+          // If first Match contains the 'search' word
+          // Then start web search.
+          if (listener == null || !listener.onSpeechInputFinished(textMatchList.get(0)))
+            stt_ask();
+        }
+
+        //Result code for various errors
+      }else if(resultCode == RecognizerIntent.RESULT_AUDIO_ERROR){
+        showToastMessage("Audio Error");
+        stt_ask();
+      }else if(resultCode == RecognizerIntent.RESULT_CLIENT_ERROR){
+        showToastMessage("Client Error");
+        stt_ask();
+      }else if(resultCode == RecognizerIntent.RESULT_NETWORK_ERROR){
+        showToastMessage("Network Error");
+        stt_ask();
+      }else if(resultCode == RecognizerIntent.RESULT_NO_MATCH){
+        showToastMessage("No Match");
+        stt_ask();
+      }else if(resultCode == RecognizerIntent.RESULT_SERVER_ERROR){
+        showToastMessage("Server Error");
+        stt_ask();
+      }
+
+    super.onActivityResult(requestCode, resultCode, data);
+  }
+
+  public void showToastMessage(String message){
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+  }
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -78,7 +262,7 @@ public class MainActivity extends Activity {
 	    		.commit();
 	    }
 	}
-	
+
 	public void categorieEntrees(View view) {
 		RightListePlatsFragment frag_right = new RightListePlatsFragment();
 		Bundle args = new Bundle();
@@ -166,7 +350,7 @@ public class MainActivity extends Activity {
 			.replace(R.id.fragment_left, left_frag)
 			.commit();
 	}
-	
+
 	public void payer(View view) {
 		RightPaymentFragment right_frag = new RightPaymentFragment();
 		
@@ -177,11 +361,23 @@ public class MainActivity extends Activity {
 			.commit();
 	}
 
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.action_tts:
+        _isTTSEnabled = !_isTTSEnabled;
+        if (_isTTSEnabled) tts_start();
+        else tts_stop();
+        return true;
+    }
+
+    return false;
+  }
 }

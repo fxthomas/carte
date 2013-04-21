@@ -23,7 +23,11 @@ import android.widget.RatingBar;
 import android.view.View.OnClickListener;
 
 
-public class RightListePlatsFragment extends Fragment {
+public class RightListePlatsFragment extends Fragment implements MainActivity.SpeechInputListener {
+  ArrayList<Plat> plats;
+
+  protected final String TEXT_WELCOME = "Que voulez vous commander? ";
+  protected final String TEXT_REPEAT = "Faites une autre commande, ou dites retour pour revenir au menu précédent.";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,7 +41,7 @@ public class RightListePlatsFragment extends Fragment {
 
     	LinearLayout l = (LinearLayout) v.findViewById(R.id.liste_plats_categorie);
     	
-    	ArrayList<Plat> plats = Plats.getInstance().getPlatType(type);
+    	plats = Plats.getInstance().getPlatType(type);
     	for (int i = 0 ; i < plats.size() ; i++) {
     		View vuePlat = inflater.inflate(R.layout.details_plat, container, false);
     		((ImageView) vuePlat.findViewById(R.id.image_details_plat)).setImageResource(plats.get(i).getImage());
@@ -61,4 +65,48 @@ public class RightListePlatsFragment extends Fragment {
     	
     	return v;
 	}
+
+  @Override
+  public void onStart() {
+    ((MainActivity)getActivity()).registerSpeechInput(this);
+    super.onStart();
+  }
+
+  @Override
+  public void onStop() {
+    ((MainActivity)getActivity()).unregisterSpeechInput();
+    super.onStop();
+  }
+
+  @Override
+  public boolean onSpeechInputFinished(String s) {
+    MainActivity act = (MainActivity)getActivity();
+
+    for (Plat p: plats) {
+      if (s.contains(p.getNom().toLowerCase())) {
+        Plats.getInstance().incrementer(p.getId());
+        getFragmentManager().beginTransaction()
+          .replace(R.id.fragment_left, new LeftMenuFragment())
+          .commit();
+
+        act.ask(TEXT_REPEAT);
+        return true;
+      }
+    }
+
+    if (s.contains("retour")) {
+      act.getFragmentManager().popBackStack();
+      return true;
+    }
+
+    return false;
+  }
+
+  @Override
+  public void onSpeechInputInitialized() {
+    MainActivity act = (MainActivity)getActivity();
+    String TEXT_PLATS = "";
+    for (Plat p: plats) TEXT_PLATS = TEXT_PLATS + p.getNom() + ", ";
+    act.ask(TEXT_WELCOME + TEXT_PLATS + "ou dites retour pour retourner au menu précédent");
+  }
 }
