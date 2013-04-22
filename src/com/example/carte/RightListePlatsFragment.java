@@ -82,7 +82,10 @@ public class RightListePlatsFragment extends Fragment implements MainActivity.Sp
   public boolean onSpeechInputFinished(String s) {
     MainActivity act = (MainActivity)getActivity();
 
+    // Check the recognized string for a menu item name
     for (Plat p: plats) {
+
+      // If we found one, select it and ask again
       if (s.contains(p.getNom().toLowerCase())) {
         Plats.getInstance().incrementer(p.getId());
         getFragmentManager().beginTransaction()
@@ -94,19 +97,25 @@ public class RightListePlatsFragment extends Fragment implements MainActivity.Sp
       }
     }
 
+    // If the user said "back", do it
     if (s.contains("retour")) {
       act.getFragmentManager().popBackStack();
       return true;
     }
 
+    // If we didn't recognize what the user said, start STT again
     return false;
   }
 
   @Override
   public void onSpeechInputInitialized() {
     MainActivity act = (MainActivity)getActivity();
+
+    // Builds a list of menu items
     String TEXT_PLATS = "";
     for (Plat p: plats) TEXT_PLATS = TEXT_PLATS + p.getNom() + ", ";
+
+    // Asks the user to say the name of a menu item
     act.ask(TEXT_WELCOME + TEXT_PLATS + "ou dites retour pour retourner au menu précédent");
   }
 }

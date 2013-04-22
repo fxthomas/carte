@@ -1,184 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-	android:background="@drawable/background_light">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@drawable/background_light">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Autres Convives"
-        android:textColor="#ffffff"
-        android:textSize="20sp" />
+  <TextView
+          android:id="@+id/textView1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginTop="5dp"
+          android:gravity="center"
+          android:text="Autres Convives"
+          android:textColor="#ffffff"
+          android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="sélectionnz les commandes supplémentaires à inclure dans ce règlement."
-        android:textColor="#ffffff" />
-    
-    <TableRow 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+  <TextView
+          android:id="@+id/textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:text="sélectionnz les commandes supplémentaires à inclure dans ce règlement."
+          android:textColor="#ffffff" />
 
-        <ScrollView
+  <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+    <ScrollView
             android:id="@+id/frame_left_scroll"
             android:layout_width="250dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal" >
 
-            <LinearLayout
-                android:id="@+id/frame_left_content"
+      <LinearLayout
+              android:id="@+id/frame_left_content"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+
+        <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:src="@drawable/salad_platter" />
+
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
 
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="54dp"
-                        android:src="@drawable/salad_platter" />
+          <TextView
+                  android:id="@+id/fatsalade"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.4"
+                  android:gravity="center"
+                  android:text="Fat salade  $5"
+                  android:textColor="#ffffff" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical" >
+          <RatingBar
+                  android:id="@+id/ratingBar1"
+                  style="?android:attr/ratingBarStyleSmall"
+                  android:layout_width="wrap_content"
+                  android:layout_height="0dp"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_weight="0.6"
+                  android:numStars="5" />
 
-                        <TextView
-                            android:id="@+id/fatsalade"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.4"
-                            android:gravity="center"
-                            android:text="Fat salade  $5"
-                            android:textColor="#ffffff" />
+          <ImageView
+                  android:id="@+id/imageView2"
+                  android:layout_width="match_parent"
+                  android:layout_height="54dp"
+                  android:src="@drawable/gateau" />
 
-                        <RatingBar
-                            android:id="@+id/ratingBar1"
-                            style="?android:attr/ratingBarStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="0dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_weight="0.6"
-                            android:numStars="5" />
+        </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/imageView2"
-                            android:layout_width="match_parent"
-                            android:layout_height="54dp"
-                            android:src="@drawable/gateau" />
-
-                    </LinearLayout>   
-                    
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:orientation="vertical" >
+          <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="50dp"
+                  android:orientation="vertical" >
 
-                        <TextView
-                            android:id="@+id/fatsalade"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.4"
-                            android:gravity="center"
-                            android:text="Gateau  $2.50"
-                            android:textColor="#ffffff" />
+            <TextView
+                    android:id="@+id/fatsalade"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:gravity="center"
+                    android:text="Gateau  $2.50"
+                    android:textColor="#ffffff" />
 
-                        <RatingBar
-                            android:id="@+id/ratingBar1"
-                            style="?android:attr/ratingBarStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="0dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_weight="0.6"
-                            android:numStars="5" />
-
-                    </LinearLayout>
-
-            </LinearLayout><Button
-                    android:id="@+id/confirmer"
-                    android:layout_width="94dp"
-                    android:layout_height="30dp"
+            <RatingBar
+                    android:id="@+id/ratingBar1"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/background_button_small"
-                    android:onClick="confirmer"
-                    android:text="Comfirmer"
-                    android:textSize="15sp" />
+                    android:layout_weight="0.6"
+                    android:numStars="5" />
 
-            </LinearLayout>
-            
-        </ScrollView>
-        
-         <ScrollView
+          </LinearLayout>
+
+        </LinearLayout>
+        <Button
+                android:id="@+id/confirmer"
+                android:layout_width="94dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/background_button_small"
+                android:onClick="payer"
+                android:text="Comfirmer"
+                android:textSize="15sp" />
+
+      </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
             android:id="@+id/frame_left_scroll"
             android:layout_width="250dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal" >
 
-            <LinearLayout
-                android:id="@+id/frame_left_content"
+      <LinearLayout
+              android:id="@+id/frame_left_content"
+              android:layout_width="match_parent"
+              android:layout_height="35dp"
+              android:orientation="vertical" >
+
+        <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="54dp"
+                android:src="@drawable/turkey" />
+
+        <LinearLayout
+                android:id="@+id/LinearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical" >
 
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="54dp"
-                        android:src="@drawable/turkey" />
+          <TextView
+                  android:id="@+id/fatsalade"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.4"
+                  android:gravity="center"
+                  android:text="Fat Poulet  $5"
+                  android:textColor="#ffffff" />
 
-                    <LinearLayout
-                        android:id="@+id/LinearLayout1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical" >
+          <RatingBar
+                  android:id="@+id/ratingBar1"
+                  style="?android:attr/ratingBarStyleSmall"
+                  android:layout_width="wrap_content"
+                  android:layout_height="0dp"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_weight="0.6"
+                  android:numStars="5" />
 
-                        <TextView
-                            android:id="@+id/fatsalade"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.4"
-                            android:gravity="center"
-                            android:text="Fat Poulet  $5"
-                            android:textColor="#ffffff" />
+        </LinearLayout>
 
-                        <RatingBar
-                            android:id="@+id/ratingBar1"
-                            style="?android:attr/ratingBarStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="0dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_weight="0.6"
-                            android:numStars="5" />
-
-                    </LinearLayout>               
-
-            <Button
+        <Button
                 android:id="@+id/confirmer"
                 android:layout_width="94dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/background_button_small"
-                android:onClick="confirmer"
+                android:onClick="payer"
                 android:text="Comfirmer"
                 android:textSize="15sp" />
 
-            </LinearLayout>
-            
-        </ScrollView>
-        
-    </TableRow>
-    
+      </LinearLayout>
+    </ScrollView>
+  </TableRow>
 </LinearLayout>

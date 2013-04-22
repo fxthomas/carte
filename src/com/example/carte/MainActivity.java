@@ -23,6 +23,9 @@ import java.util.Locale;
 
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 
+  /**
+   * Speech input interface
+   */
   public interface SpeechInputListener {
     public boolean onSpeechInputFinished(String s);
     public void onSpeechInputInitialized();
@@ -30,15 +33,27 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
   protected SpeechInputListener listener = null;
 
+  /**
+   * Registers a new speech input listener
+   * @param f
+   */
   public void registerSpeechInput(SpeechInputListener f) {
     listener = (SpeechInputListener)f;
     if (_isTTSEnabled) listener.onSpeechInputInitialized();
   }
 
+  /**
+   * Removes the current speech input listener
+   */
   public void unregisterSpeechInput() {
     listener = null;
   }
 
+  /**
+   * Says the `s` string with the current TTS engine,
+   * then waits for the user to say something.
+   * @param s
+   */
   public void ask(String s) {
     HashMap<String, String> map = new HashMap<String, String>();
     map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, s);
@@ -46,8 +61,15 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
   }
 
 	public final static String EXTRA_MESSAGE2 = "com.example.carte.CHANGER";
+
+  /**
+   * `true` if TTS/STT features are enabled
+   */
   boolean _isTTSEnabled = false;
-	
+
+  /**
+   * Construit la liste des plats
+   */
 	private void chargerPlats() {
 		Plats plats = Plats.getInstance();
 		plats.clear();
@@ -212,26 +234,24 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
           // Log results
           Log.i("Speech-to-text", "Got result " + textMatchList.get(0));
 
-          // If first Match contains the 'search' word
-          // Then start web search.
+          // Test on the first match
           if (listener == null || !listener.onSpeechInputFinished(textMatchList.get(0)))
             stt_ask();
         }
 
-        //Result code for various errors
-      }else if(resultCode == RecognizerIntent.RESULT_AUDIO_ERROR){
+      } else if (resultCode == RecognizerIntent.RESULT_AUDIO_ERROR){
         showToastMessage("Audio Error");
         stt_ask();
-      }else if(resultCode == RecognizerIntent.RESULT_CLIENT_ERROR){
+      } else if (resultCode == RecognizerIntent.RESULT_CLIENT_ERROR){
         showToastMessage("Client Error");
         stt_ask();
-      }else if(resultCode == RecognizerIntent.RESULT_NETWORK_ERROR){
+      } else if (resultCode == RecognizerIntent.RESULT_NETWORK_ERROR){
         showToastMessage("Network Error");
         stt_ask();
-      }else if(resultCode == RecognizerIntent.RESULT_NO_MATCH){
+      } else if (resultCode == RecognizerIntent.RESULT_NO_MATCH){
         showToastMessage("No Match");
         stt_ask();
-      }else if(resultCode == RecognizerIntent.RESULT_SERVER_ERROR){
+      } else if (resultCode == RecognizerIntent.RESULT_SERVER_ERROR){
         showToastMessage("Server Error");
         stt_ask();
       }
@@ -239,11 +259,18 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     super.onActivityResult(requestCode, resultCode, data);
   }
 
+  /**
+   * Show a new toast message
+   * @param message
+   */
   public void showToastMessage(String message){
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
   }
 
-
+  /**
+   * Called when the activity is created
+   * @param savedInstanceState
+   */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -263,6 +290,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 	    }
 	}
 
+  /**
+   * Sélectionne la catégorie "Entrées"
+   * @param view
+   */
 	public void categorieEntrees(View view) {
 		RightListePlatsFragment frag_right = new RightListePlatsFragment();
 		Bundle args = new Bundle();
@@ -276,7 +307,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		    .addToBackStack("Entrees")
 			.commit();
 	}
-	
+
+  /**
+   * Sélectionne la catégorie "Desserts"
+   * @param view
+   */
 	public void categorieDesserts(View view) {
 		RightListePlatsFragment frag_right = new RightListePlatsFragment();
 		Bundle args = new Bundle();
@@ -290,7 +325,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		    .addToBackStack("Desserts")
 			.commit();
 	}
-	
+
+  /**
+   * Sélectionne la catégorie "Viandes"
+   * @param view
+   */
 	public void categorieViandes(View view) {
 		RightListePlatsFragment frag_right = new RightListePlatsFragment();
 		Bundle args = new Bundle();
@@ -305,6 +344,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 			.commit();
 	}
 
+  /**
+   * Sélectionne la catégorie "Boissons"
+   * @param view
+   */
   public void categorieBoissons(View view) {
     RightListePlatsFragment frag_right = new RightListePlatsFragment();
     Bundle args = new Bundle();
@@ -319,6 +362,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             .commit();
   }
 
+  /**
+   * Demande à l'utilisteur de confirmer la commande
+   * @param view
+   */
 	public void confirmer(View view) {
 		LeftMenuFragment left_frag = new LeftMenuFragment();
 		Bundle args = new Bundle();
@@ -331,7 +378,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		    .addToBackStack("Confirmation")
 			.commit();
 	}
-	
+
+  /**
+   * Annule la confirmation
+   * @param v
+   */
 	public void confirmationNon(View v) {
 		LeftMenuFragment left_frag = new LeftMenuFragment();
 		
@@ -339,7 +390,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 			.replace(R.id.fragment_left, left_frag)
 			.commit();
 	}
-	
+
+  /**
+   * Confirme la commande
+   * @param v
+   */
 	public void confirmationOui(View v) {
 		LeftMenuFragment left_frag = new LeftMenuFragment();
 		Bundle args = new Bundle();
@@ -351,6 +406,34 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 			.commit();
 	}
 
+  public void miam(View v) {
+    RightBonAppetitFragment rf = new RightBonAppetitFragment();
+
+    getFragmentManager().beginTransaction()
+            .replace(R.id.fragment_right, rf)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .addToBackStack("Bon appétit")
+            .commit();
+  }
+
+  /**
+   * Permet de sélectionner d'autres convives pour le paiement
+   * @param view
+   */
+  public void selectionner_autres(View view) {
+    RightOthersFragment rf = new RightOthersFragment();
+
+    getFragmentManager().beginTransaction()
+            .replace(R.id.fragment_right, rf)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .addToBackStack("Autres convives")
+            .commit();
+  }
+
+  /**
+   * Affiche la page de paiement
+   * @param view
+   */
 	public void payer(View view) {
 		RightPaymentFragment right_frag = new RightPaymentFragment();
 		
@@ -361,6 +444,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 			.commit();
 	}
 
+  /**
+   * Crée le menu de l'application
+   * @param menu
+   * @return
+   */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -368,6 +456,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		return true;
 	}
 
+  /**
+   * Does something when a menu item is selected
+   * @param item
+   * @return
+   */
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {

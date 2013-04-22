@@ -56,6 +56,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="fitCenter"
+                    android:onClick="miam"
                     android:src="@drawable/ic_creditcard" />
 
             </LinearLayout>
@@ -124,6 +125,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="fitCenter"
+                    android:onClick="miam"
                     android:src="@drawable/ic_card" />
             </LinearLayout>
 
@@ -186,6 +188,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="fitCenter"
+                    android:onClick="miam"
                     android:src="@drawable/ic_phone" />
             </LinearLayout>
 
@@ -246,6 +249,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="fitCenter"
+                    android:onClick="miam"
                     android:src="@drawable/ic_service" />
             </LinearLayout>
 
