@@ -2,8 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_dark"
     android:orientation="vertical"
-    android:background="@drawable/background_dark" >
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="5dp" >
     
    <LinearLayout
                         android:id="@+id/commentaire"
@@ -42,11 +45,25 @@
                                 android:numStars="5" />
                         </LinearLayout>
                     </LinearLayout>
+    <TextView
+        android:id="@+id/empte"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_gravity="center_horizontal" >
+    </TextView>
+
     <EditText
         android:id="@+id/edit_message"
+        style="@style/App_EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+    <TextView
+        android:id="@+id/empte"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal" >
+    </TextView>
 
     <TableRow
         android:id="@+id/tableRow1"
@@ -63,6 +80,7 @@
 
         <Button
             android:id="@+id/non"
+            android:background="@drawable/background_button_small"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.35"
@@ -79,6 +97,7 @@
 
         <Button
             android:id="@+id/oui"
+            android:background="@drawable/background_button_small"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.35"

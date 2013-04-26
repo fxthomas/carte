@@ -41,7 +41,7 @@ public class LeftMenuFragment extends Fragment {
 	    		View vuePlat = inflater.inflate(R.layout.plat, container, false);
 	    		((ImageView) vuePlat.findViewById(R.id.image_plat)).setImageResource(plats.get(i).getImage());
 	    		((TextView) vuePlat.findViewById(R.id.texte_plat)).setText(plats.get(i).getNom() + " (" + quantite + ")");
-	    		((TextView) vuePlat.findViewById(R.id.prix_plat)).setText(Float.toString(prixPlat) + "€");
+	    		((TextView) vuePlat.findViewById(R.id.prix_plat)).setText(Float.toString(prixPlat) );
 	    		((RatingBar) vuePlat.findViewById(R.id.rating_plat)).setRating(plats.get(i).getNote());
 
           vuePlat.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +72,7 @@ public class LeftMenuFragment extends Fragment {
                 @Override
                 public void onClick(View v2) {
                   hide(v);
-                  Toast.makeText(getActivity().getApplicationContext(), "Commentaire envoyé!", Toast.LENGTH_LONG).show();
+                  Toast.makeText(getActivity().getApplicationContext(), "Commentaire envoye!", Toast.LENGTH_LONG).show();
                 }
               });
 
@@ -106,7 +106,7 @@ public class LeftMenuFragment extends Fragment {
 	    		l.addView(vuePlat);
     		}
     	}
-    	((TextView) v.findViewById(R.id.prix)).setText(Float.toString(prixTotal) + "€");
+    	((TextView) v.findViewById(R.id.prix)).setText(Float.toString(prixTotal) );
 		
     	if (mode.equals("confirmation")) {
     		View confirmation = inflater.inflate(R.layout.confimer, container, false);
@@ -114,7 +114,7 @@ public class LeftMenuFragment extends Fragment {
     	}
     	else if (mode.equals("confirme")) {
     		TextView confirme = new TextView(getActivity());
-    		confirme.setText("Commande confirmée");
+    		confirme.setText("Commande confirmee");
     		confirme.setTextColor(Color.WHITE);
     		l.addView(confirme);
     		v.findViewById(R.id.bouton_confirmer).setVisibility(View.GONE);

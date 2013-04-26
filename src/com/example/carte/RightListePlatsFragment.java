@@ -27,7 +27,7 @@ public class RightListePlatsFragment extends Fragment implements MainActivity.Sp
   ArrayList<Plat> plats;
 
   protected final String TEXT_WELCOME = "Que voulez vous commander? ";
-  protected final String TEXT_REPEAT = "Faites une autre commande, ou dites retour pour revenir au menu précédent.";
+  protected final String TEXT_REPEAT = "Faites une autre commande, ou dites retour pour revenir au menu precedent.";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class RightListePlatsFragment extends Fragment implements MainActivity.Sp
     		((ImageView) vuePlat.findViewById(R.id.image_details_plat)).setImageResource(plats.get(i).getImage());
     		((TextView) vuePlat.findViewById(R.id.texte_details_plat)).setText(plats.get(i).getNom());
     		((TextView) vuePlat.findViewById(R.id.description_details_plat)).setText(plats.get(i).getDescription());
-    		((TextView) vuePlat.findViewById(R.id.prix_details_plat)).setText(Float.toString(plats.get(i).getPrix()) + "€");
+    		((TextView) vuePlat.findViewById(R.id.prix_details_plat)).setText(Float.toString(plats.get(i).getPrix()));
     		((RatingBar) vuePlat.findViewById(R.id.rating_details_plat)).setRating(plats.get(i).getNote());
     		((TextView) vuePlat.findViewById(R.id.id_details_plat)).setText(Integer.toString(plats.get(i).getId()));
 

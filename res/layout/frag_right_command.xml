@@ -12,6 +12,9 @@
           android:scaleType="centerInside"
           android:src="@drawable/icon" />
 
+    
+
+
   <TableLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent" >
@@ -29,14 +32,24 @@
         <ImageButton
                 android:id="@+id/entree"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
                 android:layout_gravity="center"
-                android:layout_weight="0.75"
                 android:background="#00000000"
                 android:onClick="categorieEntrees"
                 android:paddingTop="20dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/salad_platter" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:text="Entrée"
+            android:textColor="#ffffff"
+            android:textSize="20dp" 
+            android:gravity="center"/>
+
       </LinearLayout>
 
       <LinearLayout
@@ -51,14 +64,22 @@
         <ImageButton
                 android:id="@+id/desserts"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
                 android:layout_gravity="center"
-                android:layout_weight="0.75"
                 android:background="#00000000"
                 android:onClick="categorieDesserts"
                 android:paddingTop="20dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/gateau" />
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:text="Desserts"
+            android:textColor="#ffffff"
+            android:textSize="20dp" 
+            android:gravity="center"/>
       </LinearLayout>
     </TableRow>
     <TableRow>
@@ -74,14 +95,23 @@
         <ImageButton
                 android:id="@+id/viande"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
                 android:layout_gravity="center"
-                android:layout_weight="0.75"
                 android:background="#00000000"
                 android:onClick="categorieViandes"
                 android:paddingTop="20dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/turkey" />
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:text="Viande"
+            android:textColor="#ffffff"
+            android:textSize="20dp" 
+            android:gravity="center"/>
       </LinearLayout>
       <LinearLayout
               android:layout_width="wrap_content"
@@ -94,14 +124,22 @@
 
         <ImageButton
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
                 android:layout_gravity="center"
-                android:layout_weight="0.75"
                 android:background="#00000000"
                 android:paddingTop="20dp"
                 android:scaleType="fitCenter"
                 android:onClick="categorieBoissons"
                 android:src="@drawable/drink" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:text="Boissons"
+            android:textColor="#ffffff"
+            android:textSize="20dp" 
+            android:gravity="center"/>
       </LinearLayout>
     </TableRow>
   </TableLayout>

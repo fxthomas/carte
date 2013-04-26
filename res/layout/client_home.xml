@@ -45,26 +45,52 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nom d'utilisateur : " />
+                        android:text="Nom d&apos;utilisateur : "
+                        android:textSize="25px" />
+
+                    <TextView
+                        android:id="@+id/empte"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_gravity="center_horizontal" >
+                    </TextView>
 
                     <EditText
                         android:id="@+id/username"
-                        android:layout_width="wrap_content"
+                        style="@style/App_EditTextStyle"
+                        android:layout_width="82dp"
                         android:layout_height="wrap_content" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mot de passe : " />
+                        android:text="Mot de passe : "
+                        android:textSize="25px" />
+
+                    <TextView
+                        android:id="@+id/empte"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_gravity="center_horizontal" >
+                    </TextView>
 
                     <EditText
                         android:id="@+id/password"
-                        android:password="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        style="@style/App_EditTextStyle"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:password="true" />
+
+                    <TextView
+                        android:id="@+id/empte"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_horizontal" >
+                    </TextView>
                     
                     <Button
                         android:id="@+id/register"
+                        android:background="@drawable/background_button_small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="S&apos;enregistrer"
@@ -88,10 +114,11 @@
                     android:orientation="vertical" >
                     
                <TextView
-                    android:layout_width="115dp"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="8dp"
-                    android:text="Vous n&apos;avez pas de compte ? " />
+                   android:layout_width="170dp"
+                   android:layout_height="wrap_content"
+                   android:paddingLeft="8dp"
+                   android:text="Vous n&apos;avez pas de compte ? "
+                   android:textSize="30px" />
                 
                 <TextView
                 android:id="@+id/empte"
@@ -101,6 +128,7 @@
                 
                 <Button
                         android:id="@+id/inscrire"
+                        android:background="@drawable/background_button_small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="S'inscrire" 
