@@ -223,7 +223,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    */
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if (requestCode == VOICE_RECOGNITION_REQUEST_CODE)
+    if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && listener != null) {
 
       //If Voice recognition is successful then it returns RESULT_OK
       if(resultCode == Activity.RESULT_OK) {
@@ -236,26 +236,19 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
           Log.i("Speech-to-text", "Got result " + textMatchList.get(0));
 
           // Test on the first match
-          if (listener == null || !listener.onSpeechInputFinished(textMatchList.get(0)))
+          if (!listener.onSpeechInputFinished(textMatchList.get(0)))
             stt_ask();
+
+        } else {
+          Log.i("Speech-to-text", "Got no match");
+          stt_ask();
         }
 
-      } else if (resultCode == RecognizerIntent.RESULT_AUDIO_ERROR){
-        showToastMessage("Audio Error");
-        stt_ask();
-      } else if (resultCode == RecognizerIntent.RESULT_CLIENT_ERROR){
-        showToastMessage("Client Error");
-        stt_ask();
-      } else if (resultCode == RecognizerIntent.RESULT_NETWORK_ERROR){
-        showToastMessage("Network Error");
-        stt_ask();
-      } else if (resultCode == RecognizerIntent.RESULT_NO_MATCH){
-        showToastMessage("No Match");
-        stt_ask();
-      } else if (resultCode == RecognizerIntent.RESULT_SERVER_ERROR){
-        showToastMessage("Server Error");
+      } else {
+        Log.i("Speech-to-text", "An error occured: " + resultCode);
         stt_ask();
       }
+    }
 
     super.onActivityResult(requestCode, resultCode, data);
   }
@@ -473,6 +466,16 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     }
 
     return false;
+  }
+
+  public void inscrire(View v) {
+    FragmentManager fm = getFragmentManager();
+
+    FragmentTransaction ft = fm.beginTransaction();
+    ft.replace(R.id.fragment_right, new RightCategoriesFragment());
+    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+    ft.addToBackStack("Commander");
+    ft.commit();
   }
 
   public void userlogin(View v) {

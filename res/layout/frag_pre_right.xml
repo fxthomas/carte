@@ -45,7 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="81dp"
                         android:gravity="center"
-                        android:text="Bon appetite !"
+                        android:text="Bon appetit!"
                         android:textSize="30dp"
                         android:typeface="normal" />
                 </TableLayout>

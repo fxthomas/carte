@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class RightCategoriesFragment extends Fragment implements MainActivity.SpeechInputListener {
-  protected final String TEXT_WELCOME = "Choisissez votre plat : entrée, viande, dessert ou boisson.";
+  protected final String TEXT_WELCOME = "Choisissez votre plat : entrée, viande, dessert ou boisson. Pour confirmer la commande, dites \"confirmer\"";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class RightCategoriesFragment extends Fragment implements MainActivity.Sp
     else if (s.contains("viande")) act.categorieViandes(null);
     else if (s.contains("dessert")) act.categorieDesserts(null);
     else if (s.contains("boisson")) act.categorieBoissons(null);
+    else if (s.contains("confirm")) act.confirmer(null);
     else return false;
     return true;
   }
