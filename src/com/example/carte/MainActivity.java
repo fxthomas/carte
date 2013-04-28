@@ -2,6 +2,7 @@ package com.example.carte;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -472,5 +473,15 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     }
 
     return false;
+  }
+
+  public void userlogin(View v) {
+    FragmentManager fm = getFragmentManager();
+
+    FragmentTransaction ft = fm.beginTransaction();
+    ft.replace(R.id.fragment_right, new RightCategoriesFragment());
+    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+    ft.addToBackStack("Commander");
+    ft.commit();
   }
 }

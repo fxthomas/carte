@@ -68,6 +68,17 @@ public class RightWelcomeFragment extends Fragment implements MainActivity.Speec
     ft.commit();
   }
 
+  public void espace_client() {
+    Activity activity = getActivity();
+    FragmentManager fm = activity.getFragmentManager();
+
+    FragmentTransaction ft = fm.beginTransaction();
+    ft.replace(R.id.fragment_right, new RightClientFragment());
+    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+    ft.addToBackStack("Espace Client");
+    ft.commit();
+  }
+
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View v = inflater.inflate(R.layout.frag_right_welcome, container, false);
@@ -84,7 +95,8 @@ public class RightWelcomeFragment extends Fragment implements MainActivity.Speec
     gv.setOnItemClickListener(new GridView.OnItemClickListener() {
       @Override
       public void onItemClick (AdapterView parent, View view, int position, long id) {
-        commander();
+        if (position == 0) commander();
+        else espace_client();
       }
     });
 
