@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_light"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp" >
+    
+     <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="5dp"
+      android:gravity="center"
+      android:text="Autres Convives"
+      android:textColor="#ffffff"
+      android:textSize="20dp" />
+
+  	<TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:text="sélectionnz les commandes supplémentaires à inclure dans ce règlement."
+      android:textColor="#ffffff" />
+  	
+  	<TextView
+        android:id="@+id/empte"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal" >
+    </TextView>
+
+  	 <ScrollView
+            android:id="@+id/frame_left_scroll"
+            style="@style/App_LinearLayoutStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal" >
+
+  	     <TableLayout
+  	         android:layout_width="match_parent"
+  	         android:layout_height="match_parent" >
+
+  	         <TableRow
+  	             android:id="@+id/tableRow1"
+  	             style="@style/App_LinearLayoutStyle"
+  	             android:layout_width="match_parent"
+  	             android:layout_height="wrap_content" >
+  	             
+  	             <CheckBox
+  	                 android:id="@+id/checkbox1"
+  	                 style="@style/App_LinearLayoutStyle"
+  	                 android:layout_width="wrap_content"
+  	                 android:layout_height="match_parent" />
+  	             
+  	             <LinearLayout
+  	                 style="@style/App_LinearLayoutStyle"
+  	                 android:layout_width="wrap_content"
+  	                 android:layout_height="fill_parent"
+  	                 android:orientation="vertical"
+  	                 android:paddingLeft="5dp"
+  	                 android:paddingRight="5dp" >
+  	                 
+  	                 <TextView
+  	                     android:layout_width="fill_parent"
+  	                     android:layout_height="0dp"
+  	                     android:layout_weight="0.5"
+  	                     android:gravity="center"
+  	                     android:text="Menu1" />
+  	                 <TextView
+  	                     android:layout_width="fill_parent"
+  	                     android:layout_height="0dp"
+  	                     android:layout_weight="0.5"
+  	                     android:gravity="center"
+  	                     android:text="Prix:15.0" />
+  	              </LinearLayout>
+  	              
+  	              <LinearLayout
+  	                  android:layout_width="0dp"
+  	                  android:layout_weight="1"
+  	                  android:layout_height="wrap_content"
+  	                  android:orientation="vertical">
+  	                 
+  	                 <LinearLayout
+  	                     style="@style/App_LinearLayoutStyle"
+  	                     android:layout_width="fill_parent"
+  	                     android:layout_height="fill_parent"
+  	                     android:orientation="horizontal"
+  	                     android:paddingBottom="5dp"
+  	                     android:paddingLeft="5dp"
+  	                     android:paddingRight="5dp"
+  	                     android:paddingTop="5dp" >
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/turkey" />
+
+                         <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0.8"
+                            android:text="Fat Poulet: The most delicious turkey you have ever tasted. " />
+                    </LinearLayout>
+                    
+  	                <LinearLayout
+  	                    style="@style/App_LinearLayoutStyle"
+  	                    android:layout_width="fill_parent"
+  	                    android:layout_height="fill_parent"
+  	                    android:orientation="horizontal"
+  	                    android:paddingBottom="5dp"
+  	                    android:paddingLeft="5dp"
+  	                    android:paddingRight="5dp"
+  	                    android:paddingTop="5dp" >
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/salad_platter" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0.8"
+                            android:text="Fat Salad: The most delicious salad you have ever tasted. " />
+                    </LinearLayout>
+                    
+  	                <LinearLayout
+  	                     style="@style/App_LinearLayoutStyle"
+  	                     android:layout_width="fill_parent"
+  	                     android:layout_height="fill_parent"
+  	                     android:orientation="horizontal"
+  	                     android:paddingBottom="5dp"
+  	                     android:paddingLeft="5dp"
+  	                     android:paddingRight="5dp"
+  	                     android:paddingTop="5dp" >
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/gateau" />
+
+                         <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0.8"
+                            android:text="Fat Gateau: The most delicious turkey you have ever tasted. " />
+                    </LinearLayout>
+  	                 
+                    
+  	                  
+  	              </LinearLayout>
+  	         </TableRow>
+  	         
+  	         
+  	         <TableRow
+  	             android:id="@+id/tableRow2"
+  	             style="@style/App_LinearLayoutStyle"
+  	             android:layout_width="match_parent"
+  	             android:layout_height="wrap_content" >
+  	             
+  	             <CheckBox
+  	                 android:id="@+id/checkbox1"
+  	                 style="@style/App_LinearLayoutStyle"
+  	                 android:layout_width="wrap_content" 
+  	                 android:layout_height="match_parent" />
+  	             
+  	             <LinearLayout
+  	                 style="@style/App_LinearLayoutStyle"
+  	                 android:layout_width="wrap_content"
+  	                 android:layout_height="fill_parent"
+  	                 android:orientation="vertical"
+  	                 android:paddingLeft="5dp"
+  	                 android:paddingRight="5dp" >
+  	                 
+  	                 <TextView
+  	                     android:layout_width="fill_parent"
+  	                     android:layout_height="0dp"
+  	                     android:layout_weight="0.5"
+  	                     android:gravity="center"
+  	                     android:text="Menu1" />
+  	                 <TextView
+  	                     android:layout_width="fill_parent"
+  	                     android:layout_height="0dp"
+  	                     android:layout_weight="0.5"
+  	                     android:gravity="center"
+  	                     android:text="Prix:10.0" />
+  	              </LinearLayout>
+  	              
+  	              <LinearLayout
+  	                  android:layout_width="0dp"
+  	                  android:layout_weight="1"
+  	                  android:layout_height="wrap_content"
+  	                  android:orientation="vertical">
+  	                 
+  	                
+  	                <LinearLayout
+  	                    style="@style/App_LinearLayoutStyle"
+  	                    android:layout_width="fill_parent"
+  	                    android:layout_height="fill_parent"
+  	                    android:orientation="horizontal"
+  	                    android:paddingBottom="5dp"
+  	                    android:paddingLeft="5dp"
+  	                    android:paddingRight="5dp"
+  	                    android:paddingTop="5dp" >
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/salad_platter" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0.8"
+                            android:text="Fat Salad: The most delicious salad you have ever tasted. " />
+                    </LinearLayout>
+                    
+  	                <LinearLayout
+  	                     style="@style/App_LinearLayoutStyle"
+  	                     android:layout_width="fill_parent"
+  	                     android:layout_height="fill_parent"
+  	                     android:orientation="horizontal"
+  	                     android:paddingBottom="5dp"
+  	                     android:paddingLeft="5dp"
+  	                     android:paddingRight="5dp"
+  	                     android:paddingTop="5dp" >
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/gateau" />
+
+                         <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0.8"
+                            android:text="Fat Gateau: The most delicious turkey you have ever tasted. " />
+                    </LinearLayout>
+  	                 
+                    
+  	                  
+  	              </LinearLayout>
+  	         </TableRow>
+
+
+  	         <TableRow
+  	             android:id="@+id/tableRow3"
+  	             android:layout_width="match_parent"
+  	             android:layout_height="wrap_content" >
+  	         </TableRow>
+
+
+  	     </TableLayout>
+     
+     </ScrollView>
+     
+     <TextView
+        android:id="@+id/empte"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal" >
+    </TextView>
+     
+  	  <Button
+  	      android:id="@+id/confirmer"
+  	      android:layout_width="wrap_content"
+  	      android:layout_height="30dp"
+  	      android:background="@drawable/background_button_small"
+  	      android:gravity="center"
+  	      android:onClick="confirmationNon"
+  	      android:text="Confirmer"
+  	      android:textSize="15dp" />
+
+</LinearLayout>

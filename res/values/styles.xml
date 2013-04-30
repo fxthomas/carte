@@ -28,6 +28,11 @@
         <item name="android:textColor">#000000</item>
     </style>
     
+    <style name="App_LinearLayoutStyle">
+        <item name="android:background">@drawable/shape_linearlayout</item>
+    </style>
+        
+    
     <style name="App_RoundButtonStyle">
         <item name="android:background">@drawable/shape_roundbutton</item>
         <item name="android:textColor">#000000</item>
