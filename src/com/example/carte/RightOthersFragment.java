@@ -11,7 +11,7 @@ public class RightOthersFragment extends Fragment implements MainActivity.Speech
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.autre_convive, container, false);
+    return inflater.inflate(R.layout.autre_convive2, container, false);
   }
 
   @Override

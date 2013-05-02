@@ -58,25 +58,13 @@ public class RightWelcomeFragment extends Fragment implements MainActivity.Speec
   private static final String TEXT_WELCOME = "Bienvenue à la bonne fourchette! Dites \"Commander\" après le \"bip\"!";
 
   public void commander() {
-    Activity activity = getActivity();
-    FragmentManager fm = activity.getFragmentManager();
-
-    FragmentTransaction ft = fm.beginTransaction();
-    ft.replace(R.id.fragment_right, new RightCategoriesFragment());
-    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-    ft.addToBackStack("Commander");
-    ft.commit();
+    MainActivity activity = (MainActivity)getActivity();
+    activity.load_fragments(null, new RightCategoriesFragment(), "Commander");
   }
 
   public void espace_client() {
-    Activity activity = getActivity();
-    FragmentManager fm = activity.getFragmentManager();
-
-    FragmentTransaction ft = fm.beginTransaction();
-    ft.replace(R.id.fragment_right, new RightClientFragment());
-    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-    ft.addToBackStack("Espace Client");
-    ft.commit();
+    MainActivity activity = (MainActivity)getActivity();
+    activity.load_fragments(null, new RightClientFragment(), "Espace client");
   }
 
   @Override
@@ -86,8 +74,8 @@ public class RightWelcomeFragment extends Fragment implements MainActivity.Speec
     Context c = this.getActivity();
 
     MyButton[] buttons = {
-            new MyButton(R.drawable.ic_order, "Commander"),
-            new MyButton(R.drawable.ic_card, "Client régulier ?")
+      new MyButton(R.drawable.ic_order, "Commander"),
+      new MyButton(R.drawable.ic_card, "Client régulier ?")
     };
 
     GridView gv = (GridView)v.findViewById(R.id.list);

@@ -273,33 +273,45 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		// On charge les plats
 		chargerPlats();
 
-	    if (savedInstanceState == null) {
-	    	LeftWelcomeFragment leftfrag = new LeftWelcomeFragment();
-	    	RightWelcomeFragment rightfrag = new RightWelcomeFragment();
-
-	    	getFragmentManager().beginTransaction()
-	    		.add(R.id.fragment_left, leftfrag)
-	    		.add(R.id.fragment_right, rightfrag)
-	    		.commit();
-	    }
+    // Charger les fragments
+    if (savedInstanceState == null) {
+      load_fragments(new LeftWelcomeFragment(), new RightWelcomeFragment(), null);
+    }
 	}
+
+  void load_fragments(Fragment left, Fragment right, String backStackName) {
+    FragmentManager fm = getFragmentManager();
+    FragmentTransaction ft = fm.beginTransaction();
+
+    if (left != null) {
+      Fragment currentLeftFragment = fm.findFragmentByTag("f_left");
+      if (currentLeftFragment != null) ft.remove(currentLeftFragment);
+      ft.add(R.id.fragment_left, left, "f_left");
+    }
+
+    if (right != null) {
+      Fragment currentRightFragment = fm.findFragmentByTag("f_right");
+      if (currentRightFragment != null) ft.remove(currentRightFragment);
+      ft.add(R.id.fragment_right, right, "f_right");
+    }
+
+    ft.addToBackStack(backStackName);
+    ft.commit();
+  }
 
   /**
    * Sélectionne la catégorie "Entrées"
    * @param view
    */
 	public void categorieEntrees(View view) {
+    // Create fragment
 		RightListePlatsFragment frag_right = new RightListePlatsFragment();
 		Bundle args = new Bundle();
 		args.putInt("type", Type.ENTREE.ordinal());
 		frag_right.setArguments(args);
-		
-		getFragmentManager().beginTransaction()
-			.replace(R.id.fragment_left, new LeftMenuFragment())
-			.replace(R.id.fragment_right, frag_right)
-			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("Entrees")
-			.commit();
+
+    // Load it
+    load_fragments(null, frag_right, "Entrées");
 	}
 
   /**
@@ -307,17 +319,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param view
    */
 	public void categorieDesserts(View view) {
+    // Create fragment
 		RightListePlatsFragment frag_right = new RightListePlatsFragment();
 		Bundle args = new Bundle();
 		args.putInt("type", Type.DESSERT.ordinal());
 		frag_right.setArguments(args);
-		
-		getFragmentManager().beginTransaction()
-			.replace(R.id.fragment_left, new LeftMenuFragment())
-			.replace(R.id.fragment_right, frag_right)
-			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("Desserts")
-			.commit();
+
+    // Load it
+    load_fragments(null, frag_right, "Desserts");
 	}
 
   /**
@@ -325,17 +334,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param view
    */
 	public void categorieViandes(View view) {
+    // Create fragment
 		RightListePlatsFragment frag_right = new RightListePlatsFragment();
 		Bundle args = new Bundle();
 		args.putInt("type", Type.VIANDE.ordinal());
 		frag_right.setArguments(args);
-		
-		getFragmentManager().beginTransaction()
-			.replace(R.id.fragment_left, new LeftMenuFragment())
-			.replace(R.id.fragment_right, frag_right)
-			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("Viandes")
-			.commit();
+
+    // Load it
+    load_fragments(null, frag_right, "Viandes");
 	}
 
   /**
@@ -343,17 +349,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param view
    */
   public void categorieBoissons(View view) {
+    // Create fragment
     RightListePlatsFragment frag_right = new RightListePlatsFragment();
     Bundle args = new Bundle();
     args.putInt("type", Type.BOISSON.ordinal());
     frag_right.setArguments(args);
 
-    getFragmentManager().beginTransaction()
-            .replace(R.id.fragment_left, new LeftMenuFragment())
-            .replace(R.id.fragment_right, frag_right)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .addToBackStack("Boissons")
-            .commit();
+    // Load it
+    load_fragments(null, frag_right, "Boissons");
   }
 
   /**
@@ -365,12 +368,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		Bundle args = new Bundle();
 		args.putString("mode", "confirmation");
 		left_frag.setArguments(args);
-		
-		getFragmentManager().beginTransaction()
-			.replace(R.id.fragment_left, left_frag)
-			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("Confirmation")
-			.commit();
+    load_fragments(left_frag, null, null);
 	}
 
   /**
@@ -378,11 +376,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param v
    */
 	public void confirmationNon(View v) {
-		LeftMenuFragment left_frag = new LeftMenuFragment();
-		
-		getFragmentManager().beginTransaction()
-			.replace(R.id.fragment_left, left_frag)
-			.commit();
+    load_fragments(new LeftMenuFragment(), null, null);
 	}
 
   /**
@@ -394,20 +388,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		Bundle args = new Bundle();
 		args.putString("mode", "confirme");
 		left_frag.setArguments(args);
-		
-		getFragmentManager().beginTransaction()
-			.replace(R.id.fragment_left, left_frag)
-			.commit();
+    load_fragments(left_frag, null, null);
 	}
 
   public void miam(View v) {
-    RightBonAppetitFragment rf = new RightBonAppetitFragment();
-
-    getFragmentManager().beginTransaction()
-            .replace(R.id.fragment_right, rf)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .addToBackStack("Bon appétit")
-            .commit();
+    load_fragments(null, new RightBonAppetitFragment(), "Bon appétit!");
   }
 
   /**
@@ -415,13 +400,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param view
    */
   public void selectionner_autres(View view) {
-    RightOthersFragment rf = new RightOthersFragment();
-
-    getFragmentManager().beginTransaction()
-            .replace(R.id.fragment_right, rf)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .addToBackStack("Autres convives")
-            .commit();
+    load_fragments(null, new RightOthersFragment(), "Autres convives");
   }
 
   /**
@@ -429,13 +408,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param view
    */
 	public void payer(View view) {
-		RightPaymentFragment right_frag = new RightPaymentFragment();
-		
-		getFragmentManager().beginTransaction()
-			.replace(R.id.fragment_right, right_frag)
-			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-		    .addToBackStack("Paiement")
-			.commit();
+    load_fragments(null, new RightPaymentFragment(), "Paiement");
 	}
 
   /**
@@ -469,22 +442,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
   }
 
   public void inscrire(View v) {
-    FragmentManager fm = getFragmentManager();
-
-    FragmentTransaction ft = fm.beginTransaction();
-    ft.replace(R.id.fragment_right, new RightCategoriesFragment());
-    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-    ft.addToBackStack("Commander");
-    ft.commit();
+    load_fragments(null, new RightCategoriesFragment(), "Commander");
   }
 
   public void userlogin(View v) {
-    FragmentManager fm = getFragmentManager();
-
-    FragmentTransaction ft = fm.beginTransaction();
-    ft.replace(R.id.fragment_right, new RightCategoriesFragment());
-    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-    ft.addToBackStack("Commander");
-    ft.commit();
+    load_fragments(null, new RightCategoriesFragment(), "Commander");
   }
 }
