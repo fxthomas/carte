@@ -133,7 +133,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
      */
     @Override
     public void onDone(String s) {
-      runOnUiThread(new Runnable() {
+      if (listener != null) runOnUiThread(new Runnable() {
         @Override
         public void run() { stt_ask(); }
       });

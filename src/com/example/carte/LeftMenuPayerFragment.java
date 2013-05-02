@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 public class LeftMenuPayerFragment extends Fragment implements MainActivity.SpeechInputListener {
-  final String TEXT_PAYER = "Voules-vous payer la commande?";
+  final String TEXT_PAYER = "Voules vous payer la commande?";
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

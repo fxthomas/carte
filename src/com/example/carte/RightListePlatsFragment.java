@@ -27,7 +27,7 @@ public class RightListePlatsFragment extends Fragment implements MainActivity.Sp
   ArrayList<Plat> plats;
 
   protected final String TEXT_WELCOME = "Que voulez vous commander? ";
-  protected final String TEXT_REPEAT = "Faites une autre commande, ou dites retour pour revenir au menu precedent.";
+  protected final String TEXT_REPEAT = "Faites une autre commande, ou dites retour pour revenir au menu précédent.";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -86,10 +86,7 @@ public class RightListePlatsFragment extends Fragment implements MainActivity.Sp
       // If we found one, select it and ask again
       if (s.contains(p.getNom().toLowerCase())) {
         Plats.getInstance().incrementer(p.getId());
-        getFragmentManager().beginTransaction()
-          .replace(R.id.fragment_left, new LeftMenuFragment())
-          .commit();
-
+        act.load_fragments(new LeftMenuFragment(), null, null);
         act.ask(TEXT_REPEAT);
         return true;
       }

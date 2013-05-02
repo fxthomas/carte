@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 public class LeftMenuConfirmationFragment extends Fragment implements MainActivity.SpeechInputListener {
-  final String TEXT_CONFIRMATION = "Voulez-vous confirmer la commande?";
+  final String TEXT_CONFIRMATION = "Voulez vous confirmer la commande?";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
