@@ -372,7 +372,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param v
    */
 	public void confirmationNon(View v) {
-    getFragmentManager().popBackStack();
+    load_fragments(new LeftMenuFragment(), null, null);
 	}
 
   /**
