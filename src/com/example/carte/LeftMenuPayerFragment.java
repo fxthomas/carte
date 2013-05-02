@@ -1,26 +1,24 @@
 package com.example.carte;
 
-import java.util.ArrayList;
-
-import android.widget.*;
-import com.example.carte.Plat.Type;
-
 import android.app.Fragment;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.*;
+
+import java.util.ArrayList;
 
 
-public class LeftMenuFragment extends Fragment implements MainActivity.SpeechInputListener {
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.frag_left_menu, container, false);
+public class LeftMenuPayerFragment extends Fragment implements MainActivity.SpeechInputListener {
+  final String TEXT_PAYER = "Voules-vous payer la commande?";
 
-    final int layout_open = R.id.layout_quantity;
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    View v = inflater.inflate(R.layout.frag_left_menu, container, false);
+
+    final int layout_open = R.id.layout_comment;
 
     // Add menu items
     LinearLayout l = (LinearLayout) v.findViewById(R.id.liste_plats);
@@ -105,15 +103,39 @@ public class LeftMenuFragment extends Fragment implements MainActivity.SpeechInp
     // Set total price
     ((TextView) v.findViewById(R.id.prix)).setText(Float.toString(prixTotal) );
 
+    MainActivity act = (MainActivity)getActivity();
+    // Add confirmation view
+    TextView confirme = new TextView(getActivity());
+    confirme.setText("Commande confirmee");
+    confirme.setTextColor(Color.WHITE);
+    l.addView(confirme);
+    v.findViewById(R.id.button).setVisibility(View.VISIBLE);
+    v.findViewById(R.id.bouton_confirmer).setVisibility(View.GONE);
+    v.findViewById(R.id.bouton_payer).setVisibility(View.VISIBLE);
+
+    // Add speech input
+    act.registerSpeechInput(this);
+
     return v;
-	}
+  }
 
   @Override
   public boolean onSpeechInputFinished(String s) {
+    MainActivity act = (MainActivity)getActivity();
+
+    if (s.contains("oui")) {
+      act.payer(null);
+      act.ask("Veuillez patienter, un serveur a été appelé!");
+      act.unregisterSpeechInput();
+      return true;
+    }
+
     return false;
   }
 
   @Override
   public void onSpeechInputInitialized() {
+    MainActivity act = (MainActivity)getActivity();
+    act.ask(TEXT_PAYER);
   }
 }

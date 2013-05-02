@@ -54,10 +54,8 @@ public class RightListePlatsFragment extends Fragment implements MainActivity.Sp
         vuePlat.setOnClickListener(new OnClickListener() {
           @Override
           public void onClick(View v) {
-            Plats.getInstance().incrementer(Integer.parseInt(((TextView)v.findViewById(R.id.id_details_plat)).getText().toString()));
-            getFragmentManager().beginTransaction()
-            .replace(R.id.fragment_left, new LeftMenuFragment())
-            .commit();
+            Plats.getInstance().incrementer(Integer.parseInt(((TextView) v.findViewById(R.id.id_details_plat)).getText().toString()));
+            ((MainActivity)getActivity()).load_fragments(new LeftMenuFragment(), null, null);
           }
         });
         l.addView(vuePlat);

@@ -295,7 +295,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
       ft.add(R.id.fragment_right, right, "f_right");
     }
 
-    ft.addToBackStack(backStackName);
+    if (backStackName != null) ft.addToBackStack(backStackName);
     ft.commit();
   }
 
@@ -364,11 +364,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param view
    */
 	public void confirmer(View view) {
-		LeftMenuFragment left_frag = new LeftMenuFragment();
-		Bundle args = new Bundle();
-		args.putString("mode", "confirmation");
-		left_frag.setArguments(args);
-    load_fragments(left_frag, null, null);
+    load_fragments(new LeftMenuConfirmationFragment(), null, null);
 	}
 
   /**
@@ -376,7 +372,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param v
    */
 	public void confirmationNon(View v) {
-    load_fragments(new LeftMenuFragment(), null, null);
+    getFragmentManager().popBackStack();
 	}
 
   /**
@@ -384,11 +380,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
    * @param v
    */
 	public void confirmationOui(View v) {
-		LeftMenuFragment left_frag = new LeftMenuFragment();
-		Bundle args = new Bundle();
-		args.putString("mode", "confirme");
-		left_frag.setArguments(args);
-    load_fragments(left_frag, null, null);
+    load_fragments(new LeftMenuPayerFragment(), null, null);
 	}
 
   public void miam(View v) {
