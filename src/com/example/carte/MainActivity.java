@@ -77,15 +77,15 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		
 		Plat plat1 = new Plat("Salade niçoise", "Excellente salade niçoise", 21, 3, R.drawable.salad_platter, Type.ENTREE);
 		Plat plat2 = new Plat("Salade viennoise", "Salade viennoise excellente", 21, 2, R.drawable.salad_platter, Type.ENTREE);
-		Plat plat3 = new Plat("Fat salade", "Fat Fat salade", 21, 4, R.drawable.salad_platter, Type.ENTREE);
+		Plat plat3 = new Plat("Salade aux tomates", "Des tomates, pourquoi pas?", 21, 4, R.drawable.salad_platter, Type.ENTREE);
 		
-		Plat plat4 = new Plat("Gateau", "Un énorme gâteau caramel-choco", 2.5f, 5, R.drawable.gateau, Type.DESSERT);
-		Plat plat5 = new Plat("Gateau2", "Un énorme gâteau caramel-choco", 5, 3, R.drawable.gateau, Type.DESSERT);
-		Plat plat6 = new Plat("Gateau3", "Un énorme gâteau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
-		Plat plat10= new Plat("Gateau", "Un énorme gâteau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
-		Plat plat11 = new Plat("Gateau2", "Un énorme gâteau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
-		Plat plat12 = new Plat("Gateau3", "Un énorme gâteau caramel-choco", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
-		
+		Plat plat4 = new Plat("Gâteau caramel", "Un énorme gâteau caramel-choco", 2.5f, 5, R.drawable.gateau, Type.DESSERT);
+		Plat plat5 = new Plat("Gâteau chocolat", "Un autre gâteau", 5, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat6 = new Plat("Gâteau fraises", "Un gâteau aux fraises", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat10= new Plat("Gâteau citron", "Un gâteau au citron", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat11 = new Plat("Gâteau aux marrons", "Mmh, des marrons!", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
+		Plat plat12 = new Plat("Éclair au chocolat", "Une bonne pâtisserie", 9.99f, 3, R.drawable.gateau, Type.DESSERT);
+
 		Plat plat7 = new Plat("Dinde", "Dinde aux marrons", 50, 4, R.drawable.turkey, Type.VIANDE);
 		Plat plat8 = new Plat("Turkey", "Thanksgiving is coming", 70, 5, R.drawable.turkey, Type.VIANDE);
 		Plat plat9 = new Plat("Dindon", "Dindon", 25, 1, R.drawable.turkey, Type.VIANDE);
